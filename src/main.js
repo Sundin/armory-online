@@ -18,3 +18,8 @@ const vm = new Vue({
 });
 
 vm.$mount('#app');
+
+// Handle browser back button
+window.addEventListener('popstate', () => {
+  this.data.currentRoute = document.location.pathname;
+});
