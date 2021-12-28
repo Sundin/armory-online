@@ -5,7 +5,10 @@
 <id>https://www.armory.se/feed1</id>
 <title type="html">Armory</title>
 <subtitle>Hyper Speed Metal</subtitle>
-<entry> <title type="html">Follow us with RSS</title> <link href="https://armory.se/" rel="alternate" type="text/html" title="Follow us with RSS" /> <published>2021-09-21</published> <id>Follow us with RSS_2021-09-21</id> <content type="html">
+<entry> <title type="html">In quarantine again</title> <link href="https://armory.se/" rel="alternate" type="text/html" title="In quarantine again" /> <published>2021-12-21</published> <id>In quarantine again_2021-12-21</id> <content type="html">
+Greetings from afar! Unfortunately we have some bad news this time. We are forced to go back into stasis due to the widespread panicking of Earth politicians when they heard about our imminent arrival. Don't be alarmed though, as our ship computer will continue to plan for new landing sites. Stay alive out there and we will see you soon!
+</content>
+</entry><entry> <title type="html">Follow us with RSS</title> <link href="https://armory.se/" rel="alternate" type="text/html" title="Follow us with RSS" /> <published>2021-09-21</published> <id>Follow us with RSS_2021-09-21</id> <content type="html">
 You can now follow all news from us using RSS. Just add &lt;a href='https://www.armory.se/feed.xml'&gt;this feed link&lt;/a&gt; to your RSS reader. &lt;p/&gt; If you do not know what &lt;a href='https://en.wikipedia.org/wiki/RSS'&gt;RSS&lt;/a&gt; is, it is an awesome technology invented in 1999 that allows you to subscribe to various feeds online. Compared to other alternatives such as an email newsletter or social media, there are no intermediaries that can choose to censor posts when using RSS. That means that you will decide for yourself what information you want to see, rather than giving over that control to an algorithm. To get started you just need an RSS reader like &lt;a href='https://www.inoreader.com/'&gt;Inoreader&lt;/a&gt;, &lt;a href='https://feedly.com/'&gt;Feedly&lt;/a&gt;, or &lt;a href='https://netnewswire.com/'&gt;NetNewsWire&lt;/a&gt;.
 </content>
 </entry><entry> <title type="html">More gigs confirmed</title> <link href="https://armory.se/" rel="alternate" type="text/html" title="More gigs confirmed" /> <published>2021-09-16</published> <id>More gigs confirmed_2021-09-16</id> <content type="html">

@@ -18,9 +18,18 @@ import GigEntry from './Gig.vue';
 
 const gigs = [
   {
-    date: '2022-01-08',
+    date: '2022-09-03',
+    location: 'Sandviken',
+  },
+  {
+    date: '2022-09-02',
     location: 'Klubb Fredagsmangel, Stockholm, Sweden',
     comment: 'Local planet support: Earth Messiah',
+  },
+  {
+    date: '2022-01-08',
+    location: 'Klubb Fredagsmangel, Stockholm, Sweden',
+    cancelled: true,
   },
   {
     date: '2021-10-03',
@@ -64,6 +73,7 @@ const gigs = [
     date: '2022-01-15',
     location: 'Klubb Dissonans, Jönköping, Sweden',
     comment: 'Opening for DARKNESS',
+    cancelled: true,
   },
   {
     date: '2019-06-28',
