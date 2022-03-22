@@ -1,24 +1,12 @@
 <template>
-  <div class="vault-2019">
-      <h2>2019</h2>
+  <div class="vault-2022">
+      <h2>2022</h2>
       <p>
-        Without you our mission would be doomed to fail.
-        As a special token of our appreciation,
-        we would therefore like to give you something in return.
+        Stay tuned for updates...
       </p>
-      <p>
-      Below you will find an unreleased song entitled MIDNIGHT KILLER for your ears only.
-      It was recorded during the "The Search" sessions but ultimately left off the final album.
-      </p>
-      Enjoy and keep on speeding out there!
-      <br />
-      <br />
-      <audio controls>
-        <source src="../assets/Midnight_Killer.mp3" type="audio/mpeg" controls />
-        Your browser does not support the audio element.
-      </audio>
-      <p>ARMORY 2019</p>
-      <CommentsSection pageId="fanclub2019"/>
+
+      <p>ARMORY 2022</p>
+      <CommentsSection pageId="fanclub2022"/>
     </div>
 </template>
 
@@ -29,7 +17,7 @@ export default {
   components: {
     CommentsSection,
   },
-  name: 'Vault2020',
+  name: 'Vault2022',
 };
 </script>
 
