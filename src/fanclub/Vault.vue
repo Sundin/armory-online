@@ -1,6 +1,14 @@
 <template>
   <main-layout>
     <div v-if="hasAccess">
+      <div>
+        <h1>Greetings, Space Marauder!</h1>
+        <p>Select data file:</p>
+        <button v-on:click="selectYear(2019)">2019</button>
+        <button v-on:click="selectYear(2020)">2020</button>
+        <button v-on:click="selectYear(2021)">2021</button>
+        <button v-on:click="selectYear(2022)">2022</button>
+      </div>
       <div v-if="chosenYear === 2019">
         <vault-2019/>
       </div>
@@ -10,15 +18,9 @@
       <div v-if="chosenYear === 2021">
         <vault-2021/>
       </div>
-    </div>
-    <div v-else-if="chosenYear === null">
-      <h1>Welcome to Vault Seven</h1>
-      <p>Chose the year for which your password is valid:</p>
-      <p>
-        <button v-on:click="selectYear(2019)">2019</button>
-        <button v-on:click="selectYear(2020)">2020</button>
-        <button v-on:click="selectYear(2021)">2021</button>
-      </p>
+      <div v-if="chosenYear === 2022">
+        <vault-2022/>
+      </div>
     </div>
     <div v-else>
       <h1>Welcome to Vault Seven</h1>
@@ -48,6 +50,7 @@ import MainLayout from '../layouts/Main.vue';
 import Vault2019 from './Vault2019.vue';
 import Vault2020 from './Vault2020.vue';
 import Vault2021 from './Vault2021.vue';
+import Vault2022 from './Vault2022.vue';
 
 const vault = {
   components: {
@@ -55,6 +58,7 @@ const vault = {
     Vault2019,
     Vault2020,
     Vault2021,
+    Vault2022,
   },
   methods: {
     selectYear(year) {
@@ -70,14 +74,7 @@ const vault = {
     },
     correctPassword() {
       const normalizedPassword = this.pw.toLowerCase().trim();
-      switch (this.chosenYear) {
-        case 2021:
-          return this.hashCode(normalizedPassword) === -1153224625;
-        case 2019:
-        case 2020:
-        default:
-          return this.hashCode(normalizedPassword) === 1642731934;
-      }
+      return this.hashCode(normalizedPassword) === -126205242;
     },
     hashCode(str) {
       /* eslint no-bitwise: 0 */

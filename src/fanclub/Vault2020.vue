@@ -1,6 +1,5 @@
 <template>
   <div class="vault-2020">
-      <h1>Greetings Space Marauder!</h1>
       <h2>2020 - part 2</h2>
       <p>
         Hello everybody, Armory are back! As you might already know,

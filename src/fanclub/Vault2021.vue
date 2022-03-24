@@ -1,6 +1,5 @@
 <template>
   <div>
-      <h1>Greetings Space Marauder!</h1>
       <p>
         Thank you for supporting the future of intergalactic underground speed metal!
         With your support, it's a little easier to keep our operation running.

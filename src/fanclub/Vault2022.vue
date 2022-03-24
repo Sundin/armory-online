@@ -1,25 +1,17 @@
 <template>
-  <div class="vault-2019">
-      <h2>2019</h2>
-      <p>
-        Without you our mission would be doomed to fail.
-        As a special token of our appreciation,
-        we would therefore like to give you something in return.
-      </p>
-      <p>
-      Below you will find an unreleased song entitled MIDNIGHT KILLER for your ears only.
-      It was recorded during the "The Search" sessions but ultimately left off the final album.
-      </p>
-      Enjoy and keep on speeding out there!
-      <br />
-      <br />
-      <audio controls>
-        <source src="../assets/Midnight_Killer.mp3" type="audio/mpeg" controls />
-        Your browser does not support the audio element.
-      </audio>
-      <p>ARMORY 2019</p>
-      <CommentsSection pageId="fanclub2019"/>
-    </div>
+  <div class="vault-2022">
+    <h2>2022</h2>
+    <p>
+      We need to clear our some space in our cargo holds.
+      Help us out by ordering some merch! Use the promo code OUMUAMUA
+      to get a 20% discount on all pre-Mercurion era merch from
+      <a href="https://www.jawbreaker.se/product-tag/armory/">jawbreaker.se</a>
+    </p>
+    <p>Stay tuned for updates...</p>
+
+    <p>ARMORY 2022</p>
+    <CommentsSection pageId="fanclub2022" />
+  </div>
 </template>
 
 <script>
@@ -29,12 +21,9 @@ export default {
   components: {
     CommentsSection,
   },
-  name: 'Vault2020',
+  name: 'Vault2022',
 };
 </script>
-
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style scoped>
 input {
