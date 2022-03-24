@@ -43,6 +43,7 @@
 
     <img src="../assets/band_photo.jpg" />
     <h1>Discography</h1>
+    <p><b>2022: Mercurion</b></p>
     <p>2013: Open Fire! (Demo)</p>
     <p>2015: S.M.I. (Demo)</p>
     <p>

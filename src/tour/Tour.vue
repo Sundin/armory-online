@@ -18,6 +18,16 @@ import GigEntry from './Gig.vue';
 
 const gigs = [
   {
+    date: '2022-04-30',
+    location: 'Fredericia, Denmark',
+    comment: 'Metal Magic Warmup Party',
+  },
+  {
+    date: '2022-05-07',
+    location: 'The Abyss, Gothenburg',
+    comment: 'Release party for Mercurion. Support: Tyranex',
+  },
+  {
     date: '2022-09-03',
     location: 'Sandviken',
   },
