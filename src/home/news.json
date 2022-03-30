@@ -1,5 +1,10 @@
 [
     {
+      "heading": "New music video",
+      "date": "2022-03-30",
+      "body": "Our new music video has just been unleashed, check it out!<br/><br/><iframe width='560' height='315' src='https://www.youtube.com/embed/Uw76Hz1XCz8' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+    },
+    {
       "heading": "Gig announcements",
       "date": "2022-03-01",
       "body": "Two new gigs have been added to the <a href='/tour'>TOUR</a> section. First off, we will land in Denmark to join the Metal Magic Warmup Party on April 30. Next up we will host a massive release party for <i>Mercurion</i> at The Abyss in Gothenburg on May 7. Hope to see you there!"

@@ -5,7 +5,10 @@
 <id>https://www.armory.se/feed1</id>
 <title type="html">Armory</title>
 <subtitle>Hyper Speed Metal</subtitle>
-<entry> <title type="html">Gig announcements</title> <link href="https://armory.se/" rel="alternate" type="text/html" title="Gig announcements" /> <published>2022-03-01</published> <id>Gig announcements_2022-03-01</id> <content type="html">
+<entry> <title type="html">New music video</title> <link href="https://armory.se/" rel="alternate" type="text/html" title="New music video" /> <published>2022-03-30</published> <id>New music video_2022-03-30</id> <content type="html">
+Our new music video has just been unleashed, check it out!&lt;br/&gt;&lt;br/&gt;&lt;iframe width='560' height='315' src='https://www.youtube.com/embed/Uw76Hz1XCz8' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen&gt;&lt;/iframe&gt;
+</content>
+</entry><entry> <title type="html">Gig announcements</title> <link href="https://armory.se/" rel="alternate" type="text/html" title="Gig announcements" /> <published>2022-03-01</published> <id>Gig announcements_2022-03-01</id> <content type="html">
 Two new gigs have been added to the &lt;a href='/tour'&gt;TOUR&lt;/a&gt; section. First off, we will land in Denmark to join the Metal Magic Warmup Party on April 30. Next up we will host a massive release party for &lt;i&gt;Mercurion&lt;/i&gt; at The Abyss in Gothenburg on May 7. Hope to see you there!
 </content>
 </entry><entry> <title type="html">New album out soon!</title> <link href="https://armory.se/" rel="alternate" type="text/html" title="New album out soon!" /> <published>2022-02-01</published> <id>New album out soon!_2022-02-01</id> <content type="html">
