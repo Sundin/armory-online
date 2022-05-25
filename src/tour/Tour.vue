@@ -18,6 +18,10 @@ import GigEntry from './Gig.vue';
 
 const gigs = [
   {
+    date: '2022-06-05',
+    location: 'Muskelrock, Småland',
+  },
+  {
     date: '2022-04-30',
     location: 'Fredericia, Denmark',
     comment: 'Metal Magic Warmup Party',
@@ -28,13 +32,13 @@ const gigs = [
     comment: 'Release party for Mercurion. Support: Tyranex',
   },
   {
-    date: '2022-09-03',
-    location: 'Sandviken',
+    date: '2022-09-10',
+    location: 'Sandviken Heavy Metal Army Club, Sandviken, Sweden',
   },
   {
-    date: '2022-09-02',
+    date: '2022-09-09',
     location: 'Klubb Fredagsmangel, Stockholm, Sweden',
-    comment: 'Local planet support: Earth Messiah',
+    comment: 'Local planet support: Atonement',
   },
   {
     date: '2022-01-08',
