@@ -33,12 +33,12 @@ const gigs = [
   },
   {
     date: '2022-09-10',
-    location: 'Sandviken Heavy Metal Army Club, Sandviken, Sweden',
+    location: 'Sandviken Heavy Metal Army Club, Sandviken, Sweden. Support: Atonement',
   },
   {
     date: '2022-09-09',
     location: 'Klubb Fredagsmangel, Stockholm, Sweden',
-    comment: 'Local planet support: Atonement',
+    comment: 'Support: Atonement',
   },
   {
     date: '2022-01-08',
