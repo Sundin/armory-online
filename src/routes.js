@@ -5,6 +5,7 @@ import Fanclub from './fanclub/Fanclub.vue';
 import Merch from './pages/Merch.vue';
 import Vault from './fanclub/Vault.vue';
 import Lab from './fanclub/Lab.vue';
+import Vote from './pages/Vote.vue';
 
 const routes = {
   '/': Home,
@@ -14,6 +15,7 @@ const routes = {
   '/merch': Merch,
   '/vault7': Vault,
   '/lab': Lab,
+  '/vote': Vote,
 };
 
 export default routes;
