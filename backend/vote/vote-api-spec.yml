@@ -1,0 +1,225 @@
+openapi: 3.0.1
+info:
+  title:
+    armory-vote
+  version: 1.0.0
+paths:
+  /vote/{songId}:
+    get:
+      responses:
+        200:
+          description: The request succeded and results are in the response message.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/responses/Vote"
+      x-amazon-apigateway-integration:
+        httpMethod: POST
+        type: AWS
+        uri: { "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:dynamodb:action/Query" }
+        credentials: { "Fn::GetAtt": [ VoteAPIRole, Arn ] }
+        requestTemplates:
+          application/json:
+            Fn::Sub:
+              - |-
+                {
+                  "TableName": "${tableName}",
+                  "KeyConditionExpression": "songId = :v1",
+                  "ExpressionAttributeValues": {
+                      ":v1": {
+                          "S": "$input.params('songId')"
+                      }
+                  }
+                }
+              - { tableName: { Ref: VoteTable } }
+        responses:
+          default:
+            statusCode: 200
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'*'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'GET,POST,OPTIONS'"
+            responseTemplates:
+              application/json: '#set($inputRoot = $input.path("$"))
+                          {
+                            "votes": [
+                              #foreach($elem in $inputRoot.Items) {
+                                "songId": "$elem.songId.S",
+                                "email": "$elem.email.S",
+                                "createdAt": $elem.createdAt.N,
+                                "songTitle": "$elem.songTitle.S"
+                              }#if($foreach.hasNext),#end
+                              #end
+                            ]
+                          }'
+
+  /votes:
+    get:
+      responses:
+        200:
+          description: The request succeded and results are in the response message.
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/responses/Vote"
+      x-amazon-apigateway-integration:
+        httpMethod: POST
+        type: AWS
+        uri: { "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:dynamodb:action/Scan" }
+        credentials: { "Fn::GetAtt": [ VoteAPIRole, Arn ] }
+        requestTemplates:
+          application/json:
+            Fn::Sub:
+              - |-
+                {
+                  "TableName": "${tableName}"
+                }
+              - { tableName: { Ref: VoteTable } }
+        responses:
+          default:
+            statusCode: 200
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'*'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'GET,POST,OPTIONS'"
+            responseTemplates:
+              application/json: '#set($inputRoot = $input.path("$"))
+                          {
+                            "votes": [
+                              #foreach($elem in $inputRoot.Items) {
+                                "songId": "$elem.songId.S",
+                                "songTitle": "$elem.songTitle.S",
+                                "createdAt": $elem.createdAt.N
+                              }#if($foreach.hasNext),#end
+                              #end
+                            ]
+                          }'
+
+    post:
+      responses:
+        201:
+          $ref: "#/components/responses/Created"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Vote'
+      x-amazon-apigateway-integration:
+        httpMethod: POST
+        type: AWS
+        uri: { "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:dynamodb:action/PutItem" }
+        credentials: { "Fn::GetAtt": [ VoteAPIRole, Arn ] }
+        requestTemplates:
+          application/json: 
+            Fn::Sub:
+              - |- 
+                { 
+                  "TableName": "${tableName}",
+                  "Item": {
+                    "songId": {
+                      "S": "$input.path("$.songId")"
+                    },
+                    "email": {
+                      "S": "$input.path("$.email")"
+                    },
+                    "songTitle": {
+                      "S": "$input.path("$.songTitle")"
+                    },
+                    "createdAt": {
+                      "N": "$input.path("$.createdAt")"
+                    }
+                  }
+                }
+              - { tableName: { Ref: VoteTable } }
+        responses:
+          default:
+            statusCode: 201
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'*'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'GET,POST,OPTIONS'"
+            responseTemplates:
+              application/json: '#set($inputRoot = $input.path("$"))
+                {
+                    "id": "$context.requestId"
+                }'
+
+components:
+  schemas:
+    Empty:
+      type: object
+      description: Empty Schema
+    Vote:
+      type: object
+      description: Vote
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+  responses:
+    Created: #201
+      description: The request succeeded and created a new resource.
+      headers:
+        Access-Control-Allow-Origin:
+          schema:
+            type: string
+        Access-Control-Allow-Methods:
+          schema:
+            type: string
+        Access-Control-Allow-Headers:
+          schema:
+            type: string
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id:
+                type: string
+            required:
+              - id
+    Empty:
+      description: Empty Schema
+      content:
+        application/json:
+          schema:
+            type: object
+
+    Vote:
+      description: Vote
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - name
+            properties:
+              id:
+                type: string
+              name:
+                type: string

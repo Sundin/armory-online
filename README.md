@@ -72,10 +72,13 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Backend
 
+The comments and vote APIs are built using the `x-amazon-apigateway-integration` extension. This means that we can read from and write to DynamoDB without needing a lambda or web service. Instead we will just use an API Gateway as a proxy directly in front of DynamoDB.
+
 ### Prerequisites
 * Install [aws](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv1.html) or [aws2](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) CLI tool.
 * Install [sam](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html) CLI tool.
 * Make sure the bucket `armory-online` exists.
+* Make sure you have configured your AWS credentials locally (`aws_access_key_id` and `aws_secret_access_key` in `~/.aws/credentials`).
 
 ### Deploy analytics backend
 
@@ -93,5 +96,12 @@ https://5swv4r5tl6.execute-api.eu-west-1.amazonaws.com/Prod/
 Package and deploy changes:
 
     cd backend/comments
+
+    ./deploy.sh
+
+### Deploy vote backend
+Package and deploy changes:
+
+    cd backend/vote
 
     ./deploy.sh
