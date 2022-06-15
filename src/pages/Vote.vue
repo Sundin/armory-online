@@ -39,18 +39,21 @@ export default {
   },
   computed: {
     sortedVotes() {
-      const sortedVotes = {};
+      const formattedVotes = {};
 
       this.votes.forEach((vote) => {
-        if (!sortedVotes[vote.songId]) {
-          sortedVotes[vote.songId] = {
+        if (!formattedVotes[vote.songId]) {
+          formattedVotes[vote.songId] = {
             count: 0,
             songTitle: vote.songTitle,
             songId: vote.songId,
           };
         }
-        sortedVotes[vote.songId].count += 1;
+        formattedVotes[vote.songId].count += 1;
       });
+
+      const sortedVotes = Object.values(formattedVotes);
+      sortedVotes.sort((a, b) => b.count - a.count);
 
       return sortedVotes;
     },
