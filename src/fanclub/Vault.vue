@@ -108,32 +108,6 @@ export default vault;
 </script>
 
 <style scoped>
-input {
-  background-color: #000000;
-  color: var(--text-color);
-  font-size: 21px;
-  text-align: center;
-  border: 2px solid var(--text-color);
-  outline: none;
-}
-
-.wrongPassword {
-  border: 2px solid #ff0000;
-  color: #ff0000;
-  animation-name: blinker;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-delay: infinite;
-  animation-iteration-count: 3;
-  animation-direction: alternate;
-}
-
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
-}
-
 button.validPassword {
   border: 2px solid #00ce1c;
   color: #00ce1c;
