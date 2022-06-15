@@ -43,7 +43,7 @@
           v-for="song in songs.filter(song => song.albumTitle === 'Mercurion')"
           v-bind:key="song.songTitle"
         >
-          <div class="form-group form-check">
+          <div class="form-check">
             <input
               type="checkbox"
               v-model="song.selected"
@@ -59,7 +59,7 @@
           v-for="song in songs.filter(song => song.albumTitle === 'The Search')"
           v-bind:key="song.songTitle"
         >
-          <div class="form-group form-check">
+          <div class="form-check">
             <input
               type="checkbox"
               v-model="song.selected"
@@ -75,7 +75,7 @@
           v-for="song in songs.filter(song => song.albumTitle === 'World Peace... Cosmic War')"
           v-bind:key="song.songTitle"
         >
-          <div class="form-group form-check">
+          <div class="form-check">
             <input
               type="checkbox"
               v-model="song.selected"
@@ -91,7 +91,7 @@
           v-for="song in songs.filter(song => song.albumTitle === 'S.M.I. Demo')"
           v-bind:key="song.songTitle"
         >
-          <div class="form-group form-check">
+          <div class="form-check">
             <input
               type="checkbox"
               v-model="song.selected"
@@ -107,7 +107,7 @@
           v-for="song in songs.filter(song => song.albumTitle === 'Open Fire Demo')"
           v-bind:key="song.songTitle"
         >
-          <div class="form-group form-check">
+          <div class="form-check">
             <input
               type="checkbox"
               v-model="song.selected"
@@ -123,7 +123,7 @@
           v-for="song in songs.filter(song => song.albumTitle === 'Unreleased Fanclub Song')"
           v-bind:key="song.songTitle"
         >
-          <div class="form-group form-check">
+          <div class="form-check">
             <input
               type="checkbox"
               v-model="song.selected"
@@ -142,7 +142,7 @@
 
         <hr />
 
-        <div class="form-group form-check">
+        <div class="form-check">
           <input type="checkbox" v-model="fanclub" id="accept" class="form-check-input" />
           <label class="form-check-label" for="accept"
             >I'm a fanclub member, so my votes count twice!</label
@@ -512,5 +512,10 @@ button.validPassword {
   animation-iteration-count: 1;
   animation-direction: alternate;
   opacity: 1;
+}
+
+.form-check {
+  display: flex;
+  justify-content:center;
 }
 </style>
