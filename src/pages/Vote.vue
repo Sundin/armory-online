@@ -1,134 +1,157 @@
 <template>
   <main-layout>
-    <p>
-      We are celebrating 10 years as a band this year! We will celebrate with a big concert in
-      Gothenburg later this year. To spice things up, you guys have the chance to vote on which
-      songs we shall play! The songs with the most votes becomes the setlist.
-    </p>
-    <form @submit.prevent="submit">
-      <h3>Mercurion (2022)</h3>
-      <div
-        v-for="song in songs.filter(song => song.albumTitle === 'Mercurion')"
-        v-bind:key="song.songTitle"
-      >
-        <div class="form-group form-check">
-          <input
-            type="checkbox"
-            v-model="song.selected"
-            :id="song.songTitle"
-            class="form-check-input"
-          />
-          <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
+    <div v-if="!inVoteMode">
+      <p>
+        We are celebrating 10 years as a band this year! We will celebrate with a big concert in
+        Gothenburg later this year. To spice things up, you guys have the chance to vote on which
+        songs we shall play! The songs with the most votes becomes the setlist.
+      </p>
+      <div v-if="!hasVoted">
+        <button v-on:click="inVoteMode = true">Click here to vote!</button>
+      </div>
+      <h3>Current Setlist:</h3>
+      <div class="votes">
+        <div v-for="item in sortedVotes" v-bind:key="item.songId">
+          <p>
+            {{ item.songTitle + " (" + item.count + " " + (item.count > 1 ? "votes" : "vote") }})
+          </p>
         </div>
       </div>
-
-      <h3>The Search (2018)</h3>
-      <div
-        v-for="song in songs.filter(song => song.albumTitle === 'The Search')"
-        v-bind:key="song.songTitle"
-      >
-        <div class="form-group form-check">
-          <input
-            type="checkbox"
-            v-model="song.selected"
-            :id="song.songTitle"
-            class="form-check-input"
-          />
-          <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
-        </div>
-      </div>
-
-      <h3>World Peace... Cosmic War (2016)</h3>
-      <div
-        v-for="song in songs.filter(song => song.albumTitle === 'World Peace... Cosmic War')"
-        v-bind:key="song.songTitle"
-      >
-        <div class="form-group form-check">
-          <input
-            type="checkbox"
-            v-model="song.selected"
-            :id="song.songTitle"
-            class="form-check-input"
-          />
-          <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
-        </div>
-      </div>
-
-      <h3>S.M.I. Demo (2015)</h3>
-      <div
-        v-for="song in songs.filter(song => song.albumTitle === 'S.M.I. Demo')"
-        v-bind:key="song.songTitle"
-      >
-        <div class="form-group form-check">
-          <input
-            type="checkbox"
-            v-model="song.selected"
-            :id="song.songTitle"
-            class="form-check-input"
-          />
-          <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
-        </div>
-      </div>
-
-      <h3>Open Fire Demo (2013)</h3>
-      <div
-        v-for="song in songs.filter(song => song.albumTitle === 'Open Fire Demo')"
-        v-bind:key="song.songTitle"
-      >
-        <div class="form-group form-check">
-          <input
-            type="checkbox"
-            v-model="song.selected"
-            :id="song.songTitle"
-            class="form-check-input"
-          />
-          <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
-        </div>
-      </div>
-
-      <h3>Unreleased Fanclub Song</h3>
-      <div
-        v-for="song in songs.filter(song => song.albumTitle === 'Unreleased Fanclub Song')"
-        v-bind:key="song.songTitle"
-      >
-        <div class="form-group form-check">
-          <input
-            type="checkbox"
-            v-model="song.selected"
-            :id="song.songTitle"
-            class="form-check-input"
-          />
-          <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
-        </div>
-      </div>
-
-      <hr />
-
-      <label>Enter your email address: </label>
-      <input v-model="email" v-bind:class="{ wrongPassword: this.wrongEmail }" />
-
-      <div class="form-group form-check">
-        <input type="checkbox" v-model="fanclub" id="accept" class="form-check-input" />
-        <label class="form-check-label" for="accept"
-          >I'm a fanclub member, so my votes count twice!</label
+    </div>
+    <div v-else-if="hasVoted">
+      <p>Thanks for voting!</p>
+      <button v-on:click="inVoteMode = false">View results</button>
+    </div>
+    <div v-else>
+      <p>
+        We are celebrating 10 years as a band this year! We will celebrate with a big concert in
+        Gothenburg later this year. To spice things up, you guys have the chance to vote on which
+        songs we shall play! The songs with the most votes becomes the setlist.
+      </p>
+      <p>Select songs to vote on:</p>
+      <form @submit.prevent="submit">
+        <h3>Mercurion (2022)</h3>
+        <div
+          v-for="song in songs.filter(song => song.albumTitle === 'Mercurion')"
+          v-bind:key="song.songTitle"
         >
-      </div>
+          <div class="form-group form-check">
+            <input
+              type="checkbox"
+              v-model="song.selected"
+              :id="song.songTitle"
+              class="form-check-input"
+            />
+            <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
+          </div>
+        </div>
 
-      <div v-show="fanclub">
-        <p>Enter the fanclub password for 2022 (you will find it in the fanclub letter):</p>
-        <input type="password" v-bind:class="{ wrongPassword: wrongPassword }" v-model="pw" />
-      </div>
+        <h3>The Search (2018)</h3>
+        <div
+          v-for="song in songs.filter(song => song.albumTitle === 'The Search')"
+          v-bind:key="song.songTitle"
+        >
+          <div class="form-group form-check">
+            <input
+              type="checkbox"
+              v-model="song.selected"
+              :id="song.songTitle"
+              class="form-check-input"
+            />
+            <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
+          </div>
+        </div>
 
-      <div class="form-group">
-        <button class="btn btn-primary" :disabled="!hasSelectedAnySongs">Submit</button>
-      </div>
-    </form>
+        <h3>World Peace... Cosmic War (2016)</h3>
+        <div
+          v-for="song in songs.filter(song => song.albumTitle === 'World Peace... Cosmic War')"
+          v-bind:key="song.songTitle"
+        >
+          <div class="form-group form-check">
+            <input
+              type="checkbox"
+              v-model="song.selected"
+              :id="song.songTitle"
+              class="form-check-input"
+            />
+            <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
+          </div>
+        </div>
 
-    <h3>Current Setlist:</h3>
-    <div class="votes">
-      <div v-for="item in sortedVotes" v-bind:key="item.songId">
-        <p>{{ item.songTitle + " (" + item.count + " " + (item.count > 1 ? "votes" : "vote") }})</p>
-      </div>
+        <h3>S.M.I. Demo (2015)</h3>
+        <div
+          v-for="song in songs.filter(song => song.albumTitle === 'S.M.I. Demo')"
+          v-bind:key="song.songTitle"
+        >
+          <div class="form-group form-check">
+            <input
+              type="checkbox"
+              v-model="song.selected"
+              :id="song.songTitle"
+              class="form-check-input"
+            />
+            <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
+          </div>
+        </div>
+
+        <h3>Open Fire Demo (2013)</h3>
+        <div
+          v-for="song in songs.filter(song => song.albumTitle === 'Open Fire Demo')"
+          v-bind:key="song.songTitle"
+        >
+          <div class="form-group form-check">
+            <input
+              type="checkbox"
+              v-model="song.selected"
+              :id="song.songTitle"
+              class="form-check-input"
+            />
+            <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
+          </div>
+        </div>
+
+        <h3>Unreleased Fanclub Song</h3>
+        <div
+          v-for="song in songs.filter(song => song.albumTitle === 'Unreleased Fanclub Song')"
+          v-bind:key="song.songTitle"
+        >
+          <div class="form-group form-check">
+            <input
+              type="checkbox"
+              v-model="song.selected"
+              :id="song.songTitle"
+              class="form-check-input"
+            />
+            <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
+          </div>
+        </div>
+
+        <hr />
+        <hr />
+
+        <label>Enter your email address: </label>
+        <input v-model="email" v-bind:class="{ wrongPassword: this.wrongEmail }" />
+
+        <hr />
+
+        <div class="form-group form-check">
+          <input type="checkbox" v-model="fanclub" id="accept" class="form-check-input" />
+          <label class="form-check-label" for="accept"
+            >I'm a fanclub member, so my votes count twice!</label
+          >
+        </div>
+
+        <div v-show="fanclub">
+          <p>Enter the fanclub password for 2022 (you will find it in the fanclub letter):</p>
+          <input type="password" v-bind:class="{ wrongPassword: wrongPassword }" v-model="pw" />
+        </div>
+
+        <hr />
+
+        <div class="form-group">
+          <button :disabled="!hasSelectedAnySongs">Submit</button>
+        </div>
+      </form>
     </div>
   </main-layout>
 </template>
@@ -152,6 +175,8 @@ export default {
       email: '',
       wrongPassword: false,
       wrongEmail: false,
+      inVoteMode: false,
+      hasVoted: false,
       songs: [
         {
           songTitle: 'A Message From The Stars',
@@ -404,6 +429,7 @@ export default {
         }));
         this.postVotes(secondVotes);
       }
+      this.hasVoted = true;
     },
     postVotes(myVotes) {
       myVotes.forEach((vote) => {
