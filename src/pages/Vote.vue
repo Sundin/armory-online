@@ -12,8 +12,13 @@
         v-bind:key="song.songTitle"
       >
         <div class="form-group form-check">
-          <input type="checkbox" v-model="song.selected" id="accept" class="form-check-input" />
-          <label class="form-check-label" for="accept">{{ song.songTitle }}</label>
+          <input
+            type="checkbox"
+            v-model="song.selected"
+            :id="song.songTitle"
+            class="form-check-input"
+          />
+          <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
         </div>
       </div>
 
@@ -23,8 +28,13 @@
         v-bind:key="song.songTitle"
       >
         <div class="form-group form-check">
-          <input type="checkbox" v-model="song.selected" id="accept" class="form-check-input" />
-          <label class="form-check-label" for="accept">{{ song.songTitle }}</label>
+          <input
+            type="checkbox"
+            v-model="song.selected"
+            :id="song.songTitle"
+            class="form-check-input"
+          />
+          <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
         </div>
       </div>
 
@@ -34,21 +44,82 @@
         v-bind:key="song.songTitle"
       >
         <div class="form-group form-check">
-          <input type="checkbox" v-model="song.selected" id="accept" class="form-check-input" />
-          <label class="form-check-label" for="accept">{{ song.songTitle }}</label>
+          <input
+            type="checkbox"
+            v-model="song.selected"
+            :id="song.songTitle"
+            class="form-check-input"
+          />
+          <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
         </div>
       </div>
 
       <h3>S.M.I. Demo (2015)</h3>
       <div
-        v-for="song in songs.filter(song => song.albumTitle === 'S.M.I.')"
+        v-for="song in songs.filter(song => song.albumTitle === 'S.M.I. Demo')"
         v-bind:key="song.songTitle"
       >
         <div class="form-group form-check">
-          <input type="checkbox" v-model="song.selected" id="accept" class="form-check-input" />
-          <label class="form-check-label" for="accept">{{ song.songTitle }}</label>
+          <input
+            type="checkbox"
+            v-model="song.selected"
+            :id="song.songTitle"
+            class="form-check-input"
+          />
+          <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
         </div>
       </div>
+
+      <h3>Open Fire Demo (2013)</h3>
+      <div
+        v-for="song in songs.filter(song => song.albumTitle === 'Open Fire Demo')"
+        v-bind:key="song.songTitle"
+      >
+        <div class="form-group form-check">
+          <input
+            type="checkbox"
+            v-model="song.selected"
+            :id="song.songTitle"
+            class="form-check-input"
+          />
+          <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
+        </div>
+      </div>
+
+      <h3>Unreleased Fanclub Song</h3>
+      <div
+        v-for="song in songs.filter(song => song.albumTitle === 'Unreleased Fanclub Song')"
+        v-bind:key="song.songTitle"
+      >
+        <div class="form-group form-check">
+          <input
+            type="checkbox"
+            v-model="song.selected"
+            :id="song.songTitle"
+            class="form-check-input"
+          />
+          <label class="form-check-label" :for="song.songTitle">{{ song.songTitle }}</label>
+        </div>
+      </div>
+
+      <hr />
+
+      <label>Enter your email address: </label>
+      <input v-model="email" />
+
+      <div class="form-group form-check">
+        <input type="checkbox" v-model="fanclub" id="accept" class="form-check-input" />
+        <label class="form-check-label" for="accept"
+          >I'm a fanclub member, so my votes count twice!</label
+        >
+      </div>
+
+      <input
+        type="password"
+        v-bind:class="{ wrongPassword: wrongPassword }"
+        v-model="pw"
+        v-show="fanclub"
+      />
 
       <div class="form-group">
         <button class="btn btn-primary">Submit</button>
@@ -78,6 +149,9 @@ export default {
   data() {
     return {
       votes: [],
+      fanclub: false,
+      pw: '',
+      email: '',
       songs: [
         {
           songTitle: 'A Message From The Stars',
@@ -221,22 +295,42 @@ export default {
         },
         {
           songTitle: 'Blazing Lazers',
-          albumTitle: 'S.M.I.',
+          albumTitle: 'S.M.I. Demo',
           selected: false,
         },
         {
           songTitle: 'Nightstalker',
-          albumTitle: 'S.M.I.',
+          albumTitle: 'S.M.I. Demo',
           selected: false,
         },
         {
           songTitle: 'Alien Invasion',
-          albumTitle: 'S.M.I.',
+          albumTitle: 'S.M.I. Demo',
           selected: false,
         },
         {
           songTitle: 'S.M.I.',
-          albumTitle: 'S.M.I.',
+          albumTitle: 'S.M.I. Demo',
+          selected: false,
+        },
+        {
+          songTitle: 'Beyond The Path Of Blood',
+          albumTitle: 'Open Fire Demo',
+          selected: false,
+        },
+        {
+          songTitle: 'Claustrophobic Death',
+          albumTitle: 'Open Fire Demo',
+          selected: false,
+        },
+        {
+          songTitle: 'Into The Flames With The Witch',
+          albumTitle: 'Open Fire Demo',
+          selected: false,
+        },
+        {
+          songTitle: 'Midnight Killer',
+          albumTitle: 'Unreleased Fanclub Song',
           selected: false,
         },
       ],
@@ -283,7 +377,7 @@ export default {
           songId: song.songTitle,
           songTitle: song.songTitle,
           createdAt: timestamp,
-          email: 'hej2',
+          email: this.email,
         }));
 
       myVotes.forEach((vote) => {
