@@ -105,7 +105,7 @@
       <hr />
 
       <label>Enter your email address: </label>
-      <input v-model="email" />
+      <input v-model="email" v-bind:class="{ wrongPassword: this.wrongEmail }" />
 
       <div class="form-group form-check">
         <input type="checkbox" v-model="fanclub" id="accept" class="form-check-input" />
@@ -114,13 +114,10 @@
         >
       </div>
 
-      <input
-        type="password"
-        v-bind:class="{ wrongPassword: wrongPassword }"
-        v-model="pw"
-        v-show="fanclub"
-      />
-
+      <div v-show="fanclub">
+        <p>Enter the fanclub password for 2022 (you will find it in the fanclub letter):</p>
+        <input type="password" v-bind:class="{ wrongPassword: wrongPassword }" v-model="pw" />
+      </div>
       <div class="form-group">
         <button class="btn btn-primary">Submit</button>
       </div>
@@ -152,6 +149,8 @@ export default {
       fanclub: false,
       pw: '',
       email: '',
+      wrongPassword: false,
+      wrongEmail: false,
       songs: [
         {
           songTitle: 'A Message From The Stars',
@@ -367,9 +366,26 @@ export default {
 
       return sortedVotes;
     },
+    validPasswordEntered() {
+      return this.correctPassword();
+    },
   },
   methods: {
     submit() {
+      if (!this.validateEmail(this.email)) {
+        this.wrongEmail = true;
+        console.log('invalid email');
+        return;
+      }
+      this.wrongEmail = false;
+
+      if (this.fanclub && !this.correctPassword()) {
+        this.wrongPassword = true;
+        console.log('invalid pw');
+        return;
+      }
+      this.wrongPassword = false;
+
       const timestamp = Date.now();
       const myVotes = this.songs
         .filter((song) => song.selected)
@@ -379,7 +395,16 @@ export default {
           createdAt: timestamp,
           email: this.email,
         }));
-
+      this.postVotes(myVotes);
+      if (this.fanclub) {
+        const secondVotes = myVotes.map((vote) => ({
+          ...vote,
+          email: `${this.email}-fc`,
+        }));
+        this.postVotes(secondVotes);
+      }
+    },
+    postVotes(myVotes) {
       myVotes.forEach((vote) => {
         axios
           .post(BASE_URL, vote)
@@ -391,6 +416,60 @@ export default {
           });
       });
     },
+    validateEmail(email) {
+      const res = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+      return res.test(email);
+    },
+    correctPassword() {
+      const normalizedPassword = this.pw.toLowerCase().trim();
+      return this.hashCode(normalizedPassword) === -126205242;
+    },
+    hashCode(str) {
+      /* eslint no-bitwise: 0 */
+      return str
+        .split('')
+        .reduce((prevHash, currVal) => ((prevHash << 5) - prevHash + currVal.charCodeAt(0)) | 0, 0);
+    },
   },
 };
 </script>
+
+<style scoped>
+input {
+  background-color: #000000;
+  color: var(--text-color);
+  font-size: 21px;
+  text-align: center;
+  border: 2px solid var(--text-color);
+  outline: none;
+}
+
+.wrongPassword {
+  border: 2px solid #ff0000;
+  color: #ff0000;
+  animation-name: blinker;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-delay: infinite;
+  animation-iteration-count: 3;
+  animation-direction: alternate;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+button.validPassword {
+  border: 2px solid #00ce1c;
+  color: #00ce1c;
+  animation-name: blinker;
+  animation-duration: 0.4s;
+  animation-timing-function: linear;
+  animation-delay: infinite;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  opacity: 1;
+}
+</style>
