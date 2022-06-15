@@ -11,7 +11,15 @@
       </div>
       <h3>Current Setlist:</h3>
       <div class="votes">
-        <div v-for="item in sortedVotes" v-bind:key="item.songId">
+        <div v-for="item in currentSetlist" v-bind:key="item.songId">
+          <p>
+            {{ item.songTitle + " (" + item.count + " " + (item.count > 1 ? "votes" : "vote") }})
+          </p>
+        </div>
+      </div>
+      <h3>Runner Ups:</h3>
+      <div class="votes">
+        <div v-for="item in runnerUps" v-bind:key="item.songId">
           <p>
             {{ item.songTitle + " (" + item.count + " " + (item.count > 1 ? "votes" : "vote") }})
           </p>
@@ -373,6 +381,12 @@ export default {
       });
   },
   computed: {
+    currentSetlist() {
+      return this.sortedVotes.slice(0, 8);
+    },
+    runnerUps() {
+      return this.sortedVotes.slice(8);
+    },
     sortedVotes() {
       const formattedVotes = {};
 
