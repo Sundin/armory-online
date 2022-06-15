@@ -113,4 +113,12 @@ button:hover {
   opacity: 1;
   background-color: #6a0000;
 }
+button:disabled {
+  opacity: 0.5;
+}
+button:disabled:hover {
+  opacity: 0.5;
+  background-color: #410000;
+  cursor: default;
+}
 </style>

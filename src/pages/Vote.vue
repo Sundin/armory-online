@@ -118,8 +118,9 @@
         <p>Enter the fanclub password for 2022 (you will find it in the fanclub letter):</p>
         <input type="password" v-bind:class="{ wrongPassword: wrongPassword }" v-model="pw" />
       </div>
+
       <div class="form-group">
-        <button class="btn btn-primary">Submit</button>
+        <button class="btn btn-primary" :disabled="!hasSelectedAnySongs">Submit</button>
       </div>
     </form>
 
@@ -366,8 +367,8 @@ export default {
 
       return sortedVotes;
     },
-    validPasswordEntered() {
-      return this.correctPassword();
+    hasSelectedAnySongs() {
+      return this.songs.filter((song) => song.selected).length > 0;
     },
   },
   methods: {
