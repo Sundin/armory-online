@@ -12,26 +12,31 @@
       <div v-else>
         <button v-on:click="inVoteMode = true">Click here to vote!</button>
       </div>
-      <h3>Current Setlist:</h3>
-      <div class="votes">
-        <div v-for="item in currentSetlist" v-bind:key="item.songId">
-          <p>
-            {{ item.songTitle + " (" + item.count + " " + (item.count > 1 ? "votes" : "vote") }})
-          </p>
-        </div>
+      <div v-if="isLoadingVotes">
+        <p>Loading votes...</p>
       </div>
-      <h3>Runner Ups:</h3>
-      <div class="votes">
-        <div v-for="item in runnerUps" v-bind:key="item.songId">
-          <p>
-            {{ item.songTitle + " (" + item.count + " " + (item.count > 1 ? "votes" : "vote") }})
-          </p>
+      <div v-else>
+        <h3>Current Setlist:</h3>
+        <div class="votes">
+          <div v-for="item in currentSetlist" v-bind:key="item.songId">
+            <p>
+              {{ item.songTitle + " (" + item.count + " " + (item.count > 1 ? "votes" : "vote") }})
+            </p>
+          </div>
+        </div>
+        <h3>Runner Ups:</h3>
+        <div class="votes">
+          <div v-for="item in runnerUps" v-bind:key="item.songId">
+            <p>
+              {{ item.songTitle + " (" + item.count + " " + (item.count > 1 ? "votes" : "vote") }})
+            </p>
+          </div>
         </div>
       </div>
     </div>
     <div v-else-if="hasVoted">
       <p>Thanks for voting!</p>
-      <button v-on:click="inVoteMode = false">View results</button>
+      <button v-on:click="viewResults()">View results</button>
     </div>
     <div v-else>
       <p>
@@ -188,6 +193,7 @@ export default {
       wrongEmail: false,
       inVoteMode: false,
       hasVoted: false,
+      isLoadingVotes: true,
       songs: [
         {
           songTitle: 'A Message From The Stars',
@@ -376,15 +382,7 @@ export default {
     if (localStorage.getItem('hasVoted')) {
       this.hasVoted = true;
     }
-    axios
-      .get(`${BASE_URL}`)
-      .then((response) => {
-        this.votes = response.data.votes;
-        console.log('votes', response.data.votes);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    this.loadVotes();
   },
   computed: {
     currentSetlist() {
@@ -464,6 +462,24 @@ export default {
           });
       });
     },
+    loadVotes() {
+      this.isLoadingVotes = true;
+      axios
+        .get(`${BASE_URL}`)
+        .then((response) => {
+          this.votes = response.data.votes;
+          this.isLoadingVotes = false;
+          console.log('votes', response.data.votes);
+        })
+        .catch((error) => {
+          this.isLoadingVotes = false;
+          console.log(error);
+        });
+    },
+    viewResults() {
+      this.inVoteMode = false;
+      this.loadVotes();
+    },
     validateEmail(email) {
       const res = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
       return res.test(email);
@@ -485,6 +501,6 @@ export default {
 <style scoped>
 .form-check {
   display: flex;
-  justify-content:center;
+  justify-content: center;
 }
 </style>
