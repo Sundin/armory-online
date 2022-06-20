@@ -6,8 +6,6 @@
 </template>
 
 <script>
-import routes from '../routes';
-
 export default {
   props: {
     href: {
@@ -23,8 +21,7 @@ export default {
   methods: {
     go(event) {
       event.preventDefault();
-      this.$root.currentRoute = this.href;
-      window.history.pushState(null, routes[this.href], this.href);
+      this.$router.push(this.href);
     },
   },
 };

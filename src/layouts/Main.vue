@@ -44,6 +44,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: var(--text-color);
+  height: 100%;
 }
 
 #content {
