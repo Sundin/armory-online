@@ -8,6 +8,7 @@ import Merch from './pages/Merch.vue';
 import Vault from './fanclub/Vault.vue';
 import Lab from './fanclub/Lab.vue';
 import Vote from './pages/Vote.vue';
+import NotFound from './pages/NotFound.vue';
 
 const routes = [
   { path: '/', component: Home },
@@ -19,6 +20,7 @@ const routes = [
   { path: '/lab', component: Lab },
   { path: '/10years', component: Vote },
   { path: '/vote', component: Vote },
+  { path: '/:pathMatch(.*)*', component: NotFound },
 ];
 
 const router = createRouter({
