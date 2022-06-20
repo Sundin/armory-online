@@ -6,7 +6,10 @@
         Gothenburg later this year. To spice things up, you guys have the chance to vote on which
         songs we shall play! The songs with the most votes becomes the setlist.
       </p>
-      <div v-if="!hasVoted">
+      <div v-if="hasVoted">
+        <p><i>You have already voted.</i></p>
+      </div>
+      <div v-else>
         <button v-on:click="inVoteMode = true">Click here to vote!</button>
       </div>
       <h3>Current Setlist:</h3>
@@ -370,6 +373,9 @@ export default {
     };
   },
   created() {
+    if (localStorage.getItem('hasVoted')) {
+      this.hasVoted = true;
+    }
     axios
       .get(`${BASE_URL}`)
       .then((response) => {
@@ -444,6 +450,7 @@ export default {
         this.postVotes(secondVotes);
       }
       this.hasVoted = true;
+      localStorage.setItem('hasVoted', true);
     },
     postVotes(myVotes) {
       myVotes.forEach((vote) => {
