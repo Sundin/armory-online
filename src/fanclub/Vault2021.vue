@@ -22,7 +22,7 @@
         Also if you have any ideas for future editions of the fanclub, please let us know!
       </p>
       <audio controls>
-        <source src="../assets/A Message From The Stars (Demo).mp3" type="audio/mpeg" controls />
+        <source src="../assets/A-Message-From-The-Stars_Demo.mp3" type="audio/mpeg" controls />
         Your browser does not support the audio element.
       </audio>
       <img src="../assets/armory_glitch.jpg" />
