@@ -15,6 +15,7 @@ const routes = {
   '/merch': Merch,
   '/vault7': Vault,
   '/lab': Lab,
+  '/10years': Vote,
   '/vote': Vote,
 };
 
