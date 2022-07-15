@@ -18,9 +18,14 @@ import GigEntry from './Gig.vue';
 
 const gigs = [
   {
+    date: '2022-11-18',
+    location: 'Musikens Hus, Gothenburg',
+    comment: '10th year anniversary gig! More info to come...',
+  },
+  {
     date: '2022-10-22',
     location: 'Bullet Bar, Växjö Rock City, Småland',
-    comment: 'Intergalactic night with Acid Blade (GER) and Aquilla (POL)!',
+    comment: 'Intergalactic night with Acid Blade [GER] and Aquilla [POL]!',
   },
   {
     date: '2022-06-05',
