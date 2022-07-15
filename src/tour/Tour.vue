@@ -18,6 +18,11 @@ import GigEntry from './Gig.vue';
 
 const gigs = [
   {
+    date: '2022-10-22',
+    location: 'Bullet Bar, Växjö Rock City, Småland',
+    comment: 'Intergalactic night with Acid Blade (GER) and Aquilla (POL)!',
+  },
+  {
     date: '2022-06-05',
     location: 'Muskelrock, Småland',
   },
