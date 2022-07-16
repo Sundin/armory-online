@@ -44,6 +44,7 @@ const gigs = [
   {
     date: '2022-09-10',
     location: 'Sandviken Heavy Metal Army Club, Sandviken, Sweden. Support: Atonement',
+    link: 'https://www.facebook.com/events/802160321161004',
   },
   {
     date: '2022-09-09',
