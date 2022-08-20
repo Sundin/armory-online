@@ -18,13 +18,18 @@ import GigEntry from './Gig.vue';
 
 const gigs = [
   {
-    date: '2022-11-18',
+    date: '2023-02-24',
     location: 'Musikens Hus, Gothenburg',
     comment: '10th year anniversary gig! More info to come...',
   },
   {
     date: '2022-10-22',
     location: 'Bullet Bar, Växjö Rock City, Småland',
+    comment: 'Intergalactic night with Acid Blade [GER] and Aquilla [POL]!',
+  },
+  {
+    date: '2022-10-21',
+    location: 'Bomber Bar, Motala',
     comment: 'Intergalactic night with Acid Blade [GER] and Aquilla [POL]!',
   },
   {
@@ -43,13 +48,17 @@ const gigs = [
   },
   {
     date: '2022-09-10',
-    location: 'Sandviken Heavy Metal Army Club, Sandviken, Sweden. Support: Atonement',
+    location: 'Sandviken, Sweden',
+    venue: 'Sandviken Heavy Metal Army Club',
     link: 'https://www.facebook.com/events/802160321161004',
+    comment: 'Support: Atonement',
   },
   {
     date: '2022-09-09',
-    location: 'Klubb Fredagsmangel, Stockholm, Sweden',
+    location: 'Stockholm, Sweden',
+    venue: 'Klubb Fredagsmangel',
     comment: 'Support: Atonement',
+    link: 'https://www.facebook.com/events/1466712630423740',
   },
   {
     date: '2022-01-08',
