@@ -18,6 +18,14 @@ import GigEntry from './Gig.vue';
 
 const gigs = [
   {
+    date: '2023-04-14',
+    location: 'TBA (Germany)',
+  },
+  {
+    date: '2023-04-15',
+    location: 'Dying Victims Attack!, Essen',
+  },
+  {
     date: '2023-02-24',
     location: 'Musikens Hus, Gothenburg',
     comment: '10th year anniversary gig! More info to come...',
