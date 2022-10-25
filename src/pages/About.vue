@@ -27,7 +27,8 @@
       listener through a dramatic journey aboard the starship
       <span class="title">Mercurion</span>, named after the god Mercurius – the
       winged messenger of the gods, protector of travelers and god of boundaries
-      between worlds.
+      between worlds. Mercurion was released in 2022 by the mighty Dying Victims
+      Productions.
     </p>
 
     <p>

@@ -28,7 +28,7 @@ const gigs = [
   {
     date: '2023-02-24',
     location: 'Musikens Hus, Gothenburg',
-    comment: '10th year anniversary gig! More info to come...',
+    comment: '10th year anniversary gig with Deathhammer and Warhawk! All of you fans gets to vote for the setlist!',
   },
   {
     date: '2022-10-22',
