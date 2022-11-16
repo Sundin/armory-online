@@ -1,11 +1,15 @@
 <template>
   <main-layout>
     <div v-if="!inVoteMode">
+      <h1>Armory 10 years!</h1>
+      <img src="../assets/posters/10years.jpg"/>
       <p>
-        We are celebrating 10 years as a band this year! We will celebrate with a big concert in
-        Gothenburg later this year. To spice things up, you guys have the chance to vote on which
+        We are celebrating 10 years as a band! We will celebrate with a big concert in
+        Gothenburg on the 24th of February 2023.
+        To spice things up, all our fans have the chance to vote on which
         songs we shall play! The songs with the most votes becomes the setlist.
       </p>
+      <p>Poster by <a href='https://www.turborock.se'>Turborock Productions</a>.</p>
       <div v-if="hasVoted">
         <p><i>You have already voted.</i></p>
       </div>
@@ -16,6 +20,7 @@
         <p>Loading votes...</p>
       </div>
       <div v-else>
+        <hr/>
         <h3>Current Setlist:</h3>
         <div class="votes">
           <div v-for="item in currentSetlist" v-bind:key="item.songId">
@@ -24,6 +29,7 @@
             </p>
           </div>
         </div>
+        <hr/>
         <h3>Runner Ups:</h3>
         <div class="votes">
           <div v-for="item in runnerUps" v-bind:key="item.songId">
@@ -32,6 +38,7 @@
             </p>
           </div>
         </div>
+        <hr/>
       </div>
     </div>
     <div v-else-if="hasVoted">
