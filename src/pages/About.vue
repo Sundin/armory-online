@@ -20,10 +20,11 @@
       albums done, Armory was finally ready to make something that they had planned for years but
       previously didn't feel they were ready for: a full blown sci-fi concept album with a story
       from start to finish. This didn't just put more pressure on the lyrics but also to make the
-      music more dramatic to fit the story. The album takes the listener through a dramatic journey
-      aboard the starship <span class="title">Mercurion</span>, named after the god Mercurius – the
-      winged messenger of the gods, protector of travelers and god of boundaries between worlds.
-      Mercurion was released in 2022 by the mighty Dying Victims Productions.
+      music more dramatic to fit the story. The resulting album takes the listener through a
+      dramatic journey aboard the starship <span class="title">Mercurion</span>, named after the god
+      Mercurius – the winged messenger of the gods, protector of travelers and god of boundaries
+      between worlds. <span class="title">Mercurion</span> was released in 2022 by the mighty Dying
+      Victims Productions.
     </p>
 
     <p>
