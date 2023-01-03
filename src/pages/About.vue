@@ -39,17 +39,19 @@
     <p>Ingelman – Guitars</p>
 
     <img src="../assets/band_photo.jpg" />
-    <h1>Discography</h1>
+    <h1>Album Discography</h1>
+    <p><b>2016: World Peace... Cosmic War</b></p>
+    <p><b>2018: The Search</b></p>
+    <p><b>2022: Mercurion</b></p>
+
+    <h1>Additional Discography</h1>
     <p>2013: Open Fire! (Demo)</p>
     <p>2015: S.M.I. (Demo)</p>
     <p>
       2016: Critical Mass Vol. 3 <br />(compilation appearance with the song
       <span class="title">High Speed Death</span>)
     </p>
-    <p><b>2016: World Peace... Cosmic War</b></p>
-    <p><b>2018: The Search</b></p>
     <p>2018: Live in the Abyss (<a href="/fanclub">Fanclub</a>-only Live Cassette)</p>
-    <p><b>2022: Mercurion</b></p>
 
     <h1>Links</h1>
     <p>
