@@ -24,7 +24,9 @@ export default {
 </script>
 
 <style scoped>
-img {
-  max-width: 50%;
+@media screen and (min-width: 820px) {
+  img {
+    max-width: 50%;
+  }
 }
 </style>

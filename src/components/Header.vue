@@ -54,7 +54,7 @@ export default {
   color: var(--hover-color);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 920px) {
   .navbar a {
     float: none;
     display: block;
