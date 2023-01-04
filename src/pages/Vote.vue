@@ -9,6 +9,7 @@
         To spice things up, all our fans have the chance to vote on which
         songs we shall play! The songs with the most votes becomes the setlist.
       </p>
+      <p>Buy tickets <a href="https://www.tickster.com/sv/events/9w81b5lafkxafw4/2023-02-24/deathhammer-armory-warhawk-24-2-musikens-hus">HERE</a>.</p>
       <p>Poster by <a href='https://www.turborock.se'>Turborock Productions</a>.</p>
       <div v-if="hasVoted">
         <p><i>You have already voted.</i></p>

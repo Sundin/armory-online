@@ -3,7 +3,7 @@
     <p v-bind:class="{ cancelled: item.cancelled }">
       {{ item.date }}:
       <template v-if="item.link">
-        <a :href="item.link">{{ item.venue }},</a>
+        <a :href="item.link">{{ item.venue }}</a>,
         {{ item.location }}
       </template>
       <template v-else>{{ item.location }}</template>

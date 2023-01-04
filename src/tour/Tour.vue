@@ -28,7 +28,10 @@ const gigs = [
   {
     date: '2023-02-24',
     location: 'Musikens Hus, Gothenburg',
+    venue: '10 Years Anniversary',
+    link: '/10years',
     comment: '10th year anniversary gig with Deathhammer and Warhawk! All of you fans gets to vote for the setlist!',
+    tickets: 'https://www.tickster.com/sv/events/9w81b5lafkxafw4/2023-02-24/deathhammer-armory-warhawk-24-2-musikens-hus',
   },
   {
     date: '2022-10-22',
