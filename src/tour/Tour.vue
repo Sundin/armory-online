@@ -19,7 +19,8 @@ import GigEntry from './Gig.vue';
 const gigs = [
   {
     date: '2023-04-14',
-    location: 'TBA (Germany)',
+    location: 'Bambi Galore, Hamburg',
+    comment: 'With Helstar and Solicitör',
   },
   {
     date: '2023-04-15',
