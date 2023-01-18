@@ -8,6 +8,7 @@
         <button v-on:click="selectYear(2020)">2020</button>
         <button v-on:click="selectYear(2021)">2021</button>
         <button v-on:click="selectYear(2022)">2022</button>
+        <button v-on:click="selectYear(2023)">2023</button>
       </div>
       <div v-if="chosenYear === 2019">
         <vault-2019/>
@@ -20,6 +21,9 @@
       </div>
       <div v-if="chosenYear === 2022">
         <vault-2022/>
+      </div>
+      <div v-if="chosenYear === 2023">
+        <vault-2023/>
       </div>
     </div>
     <div v-else>
@@ -51,6 +55,7 @@ import Vault2019 from './Vault2019.vue';
 import Vault2020 from './Vault2020.vue';
 import Vault2021 from './Vault2021.vue';
 import Vault2022 from './Vault2022.vue';
+import Vault2023 from './Vault2023.vue';
 
 const vault = {
   components: {
@@ -59,6 +64,7 @@ const vault = {
     Vault2020,
     Vault2021,
     Vault2022,
+    Vault2023,
   },
   methods: {
     selectYear(year) {
@@ -74,7 +80,8 @@ const vault = {
     },
     correctPassword() {
       const normalizedPassword = this.pw.toLowerCase().trim();
-      return this.hashCode(normalizedPassword) === -126205242;
+      return this.hashCode(normalizedPassword) === -295629030
+      || this.hashCode(normalizedPassword) === 386988864;
     },
     hashCode(str) {
       /* eslint no-bitwise: 0 */

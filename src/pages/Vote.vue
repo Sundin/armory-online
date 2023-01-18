@@ -494,7 +494,8 @@ export default {
     },
     correctPassword() {
       const normalizedPassword = this.pw.toLowerCase().trim();
-      return this.hashCode(normalizedPassword) === -126205242;
+      return this.hashCode(normalizedPassword) === -295629030
+      || this.hashCode(normalizedPassword) === 386988864;
     },
     hashCode(str) {
       /* eslint no-bitwise: 0 */
