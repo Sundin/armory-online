@@ -12,6 +12,7 @@
     </p>
     <hr />
     <br />
+
     <img src="../assets/ufo/ufo2.jpg" />
     <p>
       <i>
@@ -23,6 +24,40 @@
     </p>
     <hr />
     <br />
+
+    <div class="twocol">
+      <img src="../assets/ufo/ufo3.jpg" />
+      <img src="../assets/ufo/ufo4.jpg" />
+    </div>
+    <video  autoplay muted loop>
+      <source src="../assets/ufo/ufo_vid_2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p>
+      <i>
+        Leaked images from inside Area 417.
+      </i>
+    </p>
+    <hr />
+    <br />
+
+    <div class="twocol">
+      <img src="../assets/ufo/ufo5.jpg" />
+      <video width="400" height="400" autoplay muted loop>
+        <source src="../assets/ufo/ufo_vid_3.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <p>
+      <i>
+        Tunguska, Siberia, 1987. No survivors.
+        <br/>
+        No official statement was ever made.
+      </i>
+    </p>
+    <hr />
+    <br />
+
     <p>Report your own U.F.O. sightings to armoryofficial@gmail.com.</p>
     <p>The truth is out there!</p>
     <br/>
@@ -42,5 +77,10 @@ export default {
 <style scoped>
 ul {
   list-style-type: none;
+}
+
+.twocol img,video {
+  max-width: 50%;
+  height: auto;
 }
 </style>
