@@ -8,6 +8,7 @@ import Merch from './pages/Merch.vue';
 import Vault from './fanclub/Vault.vue';
 import Lab from './fanclub/Lab.vue';
 import Vote from './pages/Vote.vue';
+import TenYears from './pages/10years.vue';
 import Ufo from './pages/Ufo.vue';
 import NotFound from './pages/NotFound.vue';
 
@@ -19,7 +20,7 @@ const routes = [
   { path: '/merch', component: Merch },
   { path: '/vault7', component: Vault },
   { path: '/lab', component: Lab },
-  { path: '/10years', component: Vote },
+  { path: '/10years', component: TenYears },
   { path: '/vote', component: Vote },
   { path: '/ufo', component: Ufo },
   { path: '/:pathMatch(.*)*', component: NotFound },

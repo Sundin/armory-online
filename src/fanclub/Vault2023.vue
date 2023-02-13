@@ -26,6 +26,10 @@
       to get a 20% discount on all pre-Mercurion era merch from
       <a href="https://www.jawbreaker.se/product-tag/armory/">jawbreaker.se</a>
     </p>
+
+    <p>
+      ...And always remember that <a href="/ufo">the truth is out there</a>...
+    </p>
     <p>ARMORY 2023</p>
     <CommentsSection pageId="fanclub2023" />
   </div>
