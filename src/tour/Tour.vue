@@ -18,6 +18,19 @@ import GigEntry from './Gig.vue';
 
 const gigs = [
   {
+    date: '2023-08-26',
+    location: 'Trveheim Festival',
+  },
+  {
+    date: '2023-08-29',
+    location: 'Hemligheten (Skjulet), Gothenburg',
+  },
+  {
+    date: '2023-10-20',
+    location: 'EUROPEAN TOUR!!!',
+    comment: 'More details to be announced soon',
+  },
+  {
     date: '2023-04-14',
     location: 'Bambi Galore, Hamburg',
     comment: 'With Helstar and Solicitör',
