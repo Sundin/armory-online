@@ -31,6 +31,11 @@ const gigs = [
     comment: 'More details to be announced soon',
   },
   {
+    date: '2023-11-11',
+    location: 'Klubb Dissonans, Jönköping',
+    comment: 'With DARKNESS!',
+  },
+  {
     date: '2023-04-14',
     location: 'Bambi Galore, Hamburg',
     comment: 'With Helstar and Solicitör',
