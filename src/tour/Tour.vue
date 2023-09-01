@@ -18,17 +18,52 @@ import GigEntry from './Gig.vue';
 
 const gigs = [
   {
+    date: '2023-10-21',
+    location: 'Zxrx, Leipzig, Germany',
+  },
+  {
+    date: '2023-10-22',
+    location: 'Autobahn, Berlin, Germany',
+  },
+  {
+    date: '2023-10-22',
+    location: 'TBA',
+  },
+  {
+    date: '2023-10-24',
+    location: 'Café Carina, Vienna, Austria',
+  },
+  {
+    date: '2023-10-25',
+    location: 'Zuckerfabrik, Enns, Austria',
+  },
+  {
+    date: '2023-10-26',
+    location: 'TBA',
+  },
+  {
+    date: '2023-10-27',
+    location: 'Gaswerk, Winterthur, Switzerland',
+  },
+  {
+    date: '2023-10-28',
+    location: 'Black Soul, Donbirn, Austria',
+  },
+  {
+    date: '2023-10-29',
+    location: 'Zille, Göppingen, Germany',
+  },
+  {
+    date: '2023-10-30',
+    location: 'Chemiefabrik, Dresden, Germany',
+  },
+  {
     date: '2023-08-26',
     location: 'Trveheim Festival',
   },
   {
     date: '2023-08-29',
     location: 'Hemligheten (Skjulet), Gothenburg',
-  },
-  {
-    date: '2023-10-20',
-    location: 'EUROPEAN TOUR!!!',
-    comment: 'More details to be announced soon',
   },
   {
     date: '2023-11-11',
