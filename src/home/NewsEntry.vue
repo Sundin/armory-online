@@ -18,7 +18,10 @@
 export default {
   name: 'NewsEntry',
   props: {
-    item: Object,
+    item: {
+      type: Object,
+      required: true,
+    },
   },
 };
 </script>

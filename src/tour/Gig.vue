@@ -20,7 +20,7 @@
 export default {
   name: 'GigEntry',
   props: {
-    item: Object,
+    item: { type: Object, required: true },
     pastgig: Boolean,
   },
   computed: {
