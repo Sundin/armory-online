@@ -4,10 +4,10 @@
     <p>
       <i>{{ item.date }}</i>
       <br /><br />
-      <span v-html="item.body"></span>
+      <span v-html="item.body" />
     </p>
     <div v-if=item.image>
-        <img :src="require(`@/${item.image}`)" />
+      <img :src="require(`@/${item.image}`)" />
     </div>
     <br />
     <hr />

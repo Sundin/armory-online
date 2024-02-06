@@ -6,20 +6,20 @@
       The sound on the end result turned out quite differently so hopefully you
       find these raw mixes interesting, like a window in time to the days we spent
       in Nacksving Studios in Gothenburg to record these tunes.
-      </p>
-      Turn up the volume and as always, let us know what you think.
-      <br />
-      <br />
-      <p>Hisingen Warriors</p>
-      <audio controls>
-        <source src="../assets/Hisingen-Warriors-raw-mix.mp3" type="audio/mpeg" controls />
-        Your browser does not support the audio element.
-      </audio>
-      <p>H.M. Impact</p>
-      <audio controls>
-        <source src="../assets/HM-Impact-raw-mix.mp3" type="audio/mpeg" controls />
-        Your browser does not support the audio element.
-      </audio>
+    </p>
+    Turn up the volume and as always, let us know what you think.
+    <br />
+    <br />
+    <p>Hisingen Warriors</p>
+    <audio controls>
+      <source src="../assets/Hisingen-Warriors-raw-mix.mp3" type="audio/mpeg" controls />
+      Your browser does not support the audio element.
+    </audio>
+    <p>H.M. Impact</p>
+    <audio controls>
+      <source src="../assets/HM-Impact-raw-mix.mp3" type="audio/mpeg" controls />
+      Your browser does not support the audio element.
+    </audio>
     <p>
       We still need to clear our some space in our cargo holds.
       Help us out by ordering some merch! Use the promo code THETRUTHISOUTTHERE

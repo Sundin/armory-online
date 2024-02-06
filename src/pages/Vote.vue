@@ -2,7 +2,7 @@
   <main-layout>
     <div v-if="!inVoteMode">
       <h1>Armory 10 years!</h1>
-      <img src="../assets/posters/10years.jpg"/>
+      <img src="../assets/posters/10years.jpg" />
       <p>
         We are celebrating 10 years as a band! We will celebrate with a big concert in
         Gothenburg on the 24th of February 2023.
@@ -21,25 +21,25 @@
         <p>Loading votes...</p>
       </div>
       <div v-else>
-        <hr/>
+        <hr />
         <h3>Current Setlist:</h3>
         <div class="votes">
           <div v-for="item in currentSetlist" v-bind:key="item.songId">
             <p>
-              {{ item.songTitle + " (" + item.count + " " + (item.count > 1 ? "votes" : "vote") }})
+              {{ `${item.songTitle} (${item.count} ${item.count > 1 ? "votes" : "vote"}` }})
             </p>
           </div>
         </div>
-        <hr/>
+        <hr />
         <h3>Runner Ups:</h3>
         <div class="votes">
           <div v-for="item in runnerUps" v-bind:key="item.songId">
             <p>
-              {{ item.songTitle + " (" + item.count + " " + (item.count > 1 ? "votes" : "vote") }})
+              {{ `${item.songTitle} (${item.count} ${item.count > 1 ? "votes" : "vote"}` }})
             </p>
           </div>
         </div>
-        <hr/>
+        <hr />
       </div>
     </div>
     <div v-else-if="hasVoted">
@@ -160,14 +160,16 @@
 
         <div class="form-check">
           <input type="checkbox" v-model="fanclub" id="accept" class="form-check-input" />
-          <label class="form-check-label" for="accept"
-            >I'm a fanclub member, so my votes count twice!</label
+          <label
+            class="form-check-label"
+            for="accept"
+          >I'm a fanclub member, so my votes count twice!</label
           >
         </div>
 
         <div v-show="fanclub">
           <p>Enter the fanclub password for 2022 (you will find it in the fanclub letter):</p>
-          <input type="password" v-bind:class="{ wrongPassword: wrongPassword }" v-model="pw" />
+          <input type="password" v-bind:class="{ wrongPassword }" v-model="pw" />
         </div>
 
         <hr />
