@@ -1,25 +1,25 @@
 <template>
   <div class="vault-2019">
-      <h2>2019</h2>
-      <p>
-        Without you our mission would be doomed to fail.
-        As a special token of our appreciation,
-        we would therefore like to give you something in return.
-      </p>
-      <p>
+    <h2>2019</h2>
+    <p>
+      Without you our mission would be doomed to fail.
+      As a special token of our appreciation,
+      we would therefore like to give you something in return.
+    </p>
+    <p>
       Below you will find an unreleased song entitled MIDNIGHT KILLER for your ears only.
       It was recorded during the "The Search" sessions but ultimately left off the final album.
-      </p>
-      Enjoy and keep on speeding out there!
-      <br />
-      <br />
-      <audio controls>
-        <source src="../assets/Midnight_Killer.mp3" type="audio/mpeg" controls />
-        Your browser does not support the audio element.
-      </audio>
-      <p>ARMORY 2019</p>
-      <CommentsSection pageId="fanclub2019"/>
-    </div>
+    </p>
+    Enjoy and keep on speeding out there!
+    <br />
+    <br />
+    <audio controls>
+      <source src="../assets/Midnight_Killer.mp3" type="audio/mpeg" controls />
+      Your browser does not support the audio element.
+    </audio>
+    <p>ARMORY 2019</p>
+    <CommentsSection pageId="fanclub2019" />
+  </div>
 </template>
 
 <script>
@@ -32,7 +32,6 @@ export default {
   name: 'Vault2020',
 };
 </script>
-
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 

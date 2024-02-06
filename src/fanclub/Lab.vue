@@ -4,7 +4,7 @@
     <p>
       TOP SECRET!
     </p>
-    <CommentsSection pageId="test777"/>
+    <CommentsSection pageId="test777" />
 
   </main-layout>
 </template>

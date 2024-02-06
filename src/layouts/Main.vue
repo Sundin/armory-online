@@ -4,7 +4,7 @@
       <Header />
       <Analytics />
       <div id="content">
-        <slot></slot>
+        <slot />
       </div>
     </div>
   </div>

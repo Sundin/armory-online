@@ -8,7 +8,7 @@
       <a href="https://www.jawbreaker.se/product-tag/armory/">jawbreaker.se</a>
     </p>
     <p>Also check out our brand new music video:</p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/Uw76Hz1XCz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Uw76Hz1XCz8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen />
     <p>Stay tuned for updates...</p>
     <p>ARMORY 2022</p>
     <CommentsSection pageId="fanclub2022" />

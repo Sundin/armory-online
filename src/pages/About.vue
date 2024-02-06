@@ -59,7 +59,7 @@
     </p>
     <p>
       <a href="https://open.spotify.com/artist/2mAu2bKoNDxD1jybBS1rku?si=PdF2nwUIRpam5CRc7V3i9Q"
-        >Spotify</a
+      >Spotify</a
       >
     </p>
     <p>

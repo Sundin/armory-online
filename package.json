@@ -2,26 +2,27 @@
   "name": "armory-online",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build && cp dist/index.html dist/404.html",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "axios": "^0.21.2",
+    "axios": "^1.6.7",
     "core-js": "3.26.1",
     "vue": "3.2.45",
     "vue-router": "4.1.6"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "4.5.4",
-    "@vue/cli-plugin-eslint": "4.5.4",
-    "@vue/cli-service": "4.5.4",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
     "@vue/compiler-sfc": "3.2.45",
-    "@vue/eslint-config-airbnb": "5.0.2",
-    "babel-eslint": "10.1.0",
-    "eslint": "6.8.0",
-    "eslint-plugin-vue": "^7.0.0-alpha.0"
+    "@vue/eslint-config-airbnb": "8.0.0",
+    "@babel/eslint-parser": "7.23.10",
+    "eslint": "8.56.0",
+    "eslint-plugin-vue": "9.21.1"
   },
   "postcss": {
     "plugins": {

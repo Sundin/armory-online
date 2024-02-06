@@ -1,12 +1,11 @@
 <template>
   <div class='Analytics'>
-      <slot></slot>
+    <slot />
   </div>
 </template>
 
 <script>
 /* eslint-disable max-len */
-
 
 function iOS() {
   return [
@@ -35,7 +34,6 @@ const store = {
     });
   },
 };
-
 
 export default {
   name: 'Analytics',

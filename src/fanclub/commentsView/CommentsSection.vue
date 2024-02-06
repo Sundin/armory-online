@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <div v-if="commentPosted" class="new-comment">
@@ -25,7 +24,7 @@
       <p>
         <button v-on:click="submit()">Submit</button>
       </p>
-      <slot></slot>
+      <slot />
     </div>
     <h3>Comments:</h3>
     <div class="comments">

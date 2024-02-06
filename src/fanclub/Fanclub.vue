@@ -22,7 +22,7 @@
     <p>
       In this image you can see some of the gifts we have sent out
       to our faithful fanclub members during the past years:
-      </p>
+    </p>
     <a href="https://www.jawbreaker.se/product/space-marauders-membership/">
       <img src="../assets/fanclub_merch.jpg" />
     </a>

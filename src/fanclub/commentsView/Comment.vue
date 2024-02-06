@@ -1,12 +1,11 @@
-
 <template>
   <div class="comment">
     <h2>{{item.name}}:</h2>
     <i>({{new Date(item.createdAt).toLocaleString()}})</i>
     <p>
-      <span v-html="item.comment"></span>
+      <span v-html="item.comment" />
     </p>
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
