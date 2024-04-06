@@ -26,20 +26,12 @@ const gigs = [
     location: 'Autobahn, Berlin, Germany',
   },
   {
-    date: '2023-10-22',
-    location: 'TBA',
-  },
-  {
     date: '2023-10-24',
     location: 'Café Carina, Vienna, Austria',
   },
   {
     date: '2023-10-25',
     location: 'Zuckerfabrik, Enns, Austria',
-  },
-  {
-    date: '2023-10-26',
-    location: 'TBA',
   },
   {
     date: '2023-10-27',
