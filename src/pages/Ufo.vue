@@ -29,7 +29,7 @@
       <img src="../assets/ufo/ufo3.jpg" />
       <img src="../assets/ufo/ufo4.jpg" />
     </div>
-    <video  autoplay muted loop>
+    <video autoplay muted loop>
       <source src="../assets/ufo/ufo_vid_2.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -51,7 +51,7 @@
     <p>
       <i>
         Tunguska, Siberia, 1987. No survivors.
-        <br/>
+        <br />
         No official statement was ever made.
       </i>
     </p>
@@ -60,7 +60,7 @@
 
     <p>Report your own U.F.O. sightings to armoryofficial@gmail.com.</p>
     <p>The truth is out there!</p>
-    <br/>
+    <br />
   </main-layout>
 </template>
 

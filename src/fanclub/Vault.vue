@@ -11,19 +11,19 @@
         <button v-on:click="selectYear(2023)">2023</button>
       </div>
       <div v-if="chosenYear === 2019">
-        <vault-2019/>
+        <vault-2019 />
       </div>
       <div v-if="chosenYear === 2020">
-        <vault-2020/>
+        <vault-2020 />
       </div>
       <div v-if="chosenYear === 2021">
-        <vault-2021/>
+        <vault-2021 />
       </div>
       <div v-if="chosenYear === 2022">
-        <vault-2022/>
+        <vault-2022 />
       </div>
       <div v-if="chosenYear === 2023">
-        <vault-2023/>
+        <vault-2023 />
       </div>
     </div>
     <div v-else>
@@ -31,7 +31,7 @@
       <p>To access the Vault, enter the secret of steel:</p>
       <input
         type="password"
-        v-bind:class="{ wrongPassword: wrongPassword }"
+        v-bind:class="{ wrongPassword }"
         v-model="pw"
         autofocus="autofocus"
         onfocus="this.select()"

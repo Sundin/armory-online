@@ -1,38 +1,38 @@
 <template>
   <div class="vault-2020">
-      <h2>2020 - part 2</h2>
-      <p>
-        Hello everybody, Armory are back! As you might already know,
-        we have been quarantined onboard our space ship for the last six months,
-        writing a new concept album.
-        The writing process has now been finished and recording will commence during this winter.
-        Some demos have already been recorded in our rehearsal pod,
-        and we would like to break the silence by sharing one of these demo tracks with you,
-        our faithful Space Marauders!
-      </p>
-      <p>
-        So behold the "VOID PRISON", one of the new tracks and our most daring song to date.
-        Bear in mind that this is a demo recording that will be re-recorded for the album.
-      </p>
-      <p>
-        Enjoy, and let us know what you think!
-        Until the next time - have a good sin.
-      </p>
-      <br />
-      <audio controls>
-        <source src="../assets/Void_Prison_Demo.mp3" type="audio/mpeg" controls />
-        Your browser does not support the audio element.
-      </audio>
-      <h2>2020 - part 1</h2>
-      <p>
+    <h2>2020 - part 2</h2>
+    <p>
+      Hello everybody, Armory are back! As you might already know,
+      we have been quarantined onboard our space ship for the last six months,
+      writing a new concept album.
+      The writing process has now been finished and recording will commence during this winter.
+      Some demos have already been recorded in our rehearsal pod,
+      and we would like to break the silence by sharing one of these demo tracks with you,
+      our faithful Space Marauders!
+    </p>
+    <p>
+      So behold the "VOID PRISON", one of the new tracks and our most daring song to date.
+      Bear in mind that this is a demo recording that will be re-recorded for the album.
+    </p>
+    <p>
+      Enjoy, and let us know what you think!
+      Until the next time - have a good sin.
+    </p>
+    <br />
+    <audio controls>
+      <source src="../assets/Void_Prison_Demo.mp3" type="audio/mpeg" controls />
+      Your browser does not support the audio element.
+    </audio>
+    <h2>2020 - part 1</h2>
+    <p>
       The membership card of 2020 is the circuit board from an actual UFO detector.
       You will find the instructions on how to use it to contruct your very own UFO detector here:
-      </p>
-      <p>
-        <a href="/ufo_detector.pdf">UFO Detector instructions.pdf</a>
-      </p>
-      <CommentsSection pageId="fanclub2020"/>
-    </div>
+    </p>
+    <p>
+      <a href="/ufo_detector.pdf">UFO Detector instructions.pdf</a>
+    </p>
+    <CommentsSection pageId="fanclub2020" />
+  </div>
 </template>
 
 <script>
@@ -45,7 +45,6 @@ export default {
   name: 'Vault2020',
 };
 </script>
-
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 
