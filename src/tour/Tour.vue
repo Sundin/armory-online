@@ -18,6 +18,14 @@ import GigEntry from './Gig.vue';
 
 const gigs = [
   {
+    date: '2025-02-21',
+    location: 'Geronimos, Stockholm, Sweden',
+  },
+  {
+    date: '2025-02-22',
+    location: 'Bomber Bar, Motala, Sweden',
+  },
+  {
     date: '2023-10-21',
     location: 'Zxrx, Leipzig, Germany',
   },
