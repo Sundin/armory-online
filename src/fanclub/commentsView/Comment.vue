@@ -1,4 +1,3 @@
-
 <template>
   <div class="comment">
     <h2>{{item.name}}:</h2>
