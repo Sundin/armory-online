@@ -26,9 +26,8 @@
 </template>
 
 <script>
+import axios from 'axios';
 import MainLayout from '../layouts/Main.vue';
-
-const axios = require('axios').default;
 
 const BASE_URL = 'https://7e8jzft898.execute-api.eu-west-1.amazonaws.com/Prod/votes';
 
