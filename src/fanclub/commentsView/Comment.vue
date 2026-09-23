@@ -1,34 +1,21 @@
 <template>
   <div class="comment">
-    <h2>{{item.name}}:</h2>
-    <i>({{new Date(item.createdAt).toLocaleString()}})</i>
-    <p>
-      <span v-html="item.comment"></span>
-    </p>
+    <h2>{{ item.name }}:</h2>
+    <time :datetime="new Date(item.createdAt).toISOString()">{{ new Date(item.createdAt).toLocaleString() }}</time>
+    <p>{{ plainTextComment(item.comment) }}</p>
     <slot></slot>
   </div>
 </template>
 
-<script>
+<script setup>
+import { plainTextComment } from '../../lib/content';
 
-export default {
-  props: {
-    item: {
-      type: Object,
-      required: true,
-    },
+defineProps({
+  item: {
+    type: Object,
+    required: true,
   },
-  computed: {
-    isActive() {
-      return this.href === this.$root.currentRoute;
-    },
-  },
-  methods: {
-    go() {
-
-    },
-  },
-};
+});
 </script>
 
 <style scoped>
@@ -39,10 +26,14 @@ div.comment {
   text-align: center;
   border-radius: 5px;
   border: 2px solid var(--text-color);
-  padding: px 5px;
+  padding: 5px;
   margin: 15px 15px;
   font-family: Georgia, serif;
   outline: none;
   opacity: 0.8;
+}
+
+p {
+  white-space: pre-wrap;
 }
 </style>

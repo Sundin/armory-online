@@ -1,16 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import Home from './home/Home.vue';
-import About from './pages/About.vue';
-import Tour from './tour/Tour.vue';
-import Fanclub from './fanclub/Fanclub.vue';
-import Merch from './pages/Merch.vue';
-import Vault from './fanclub/Vault.vue';
-import Lab from './fanclub/Lab.vue';
-import Vote from './pages/Vote.vue';
-import TenYears from './pages/10years.vue';
-import Ufo from './pages/Ufo.vue';
-import NotFound from './pages/NotFound.vue';
+const Home = () => import('./home/Home.vue');
+const About = () => import('./pages/About.vue');
+const Tour = () => import('./tour/Tour.vue');
+const Fanclub = () => import('./fanclub/Fanclub.vue');
+const Merch = () => import('./pages/Merch.vue');
+const Vault = () => import('./fanclub/Vault.vue');
+const Lab = () => import('./fanclub/Lab.vue');
+const Vote = () => import('./pages/Vote.vue');
+const TenYears = () => import('./pages/10years.vue');
+const Ufo = () => import('./pages/Ufo.vue');
+const NotFound = () => import('./pages/NotFound.vue');
 
 const routes = [
   { path: '/', component: Home },
