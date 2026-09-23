@@ -1,7 +1,7 @@
 <template>
-  <a v-bind:href="href" v-bind:class="{ active: isActive }" v-on:click="go">
+  <router-link :to="href" active-class="active" exact-active-class="active">
     <slot></slot>
-  </a>
+  </router-link>
 </template>
 
 <script>
@@ -10,17 +10,6 @@ export default {
     href: {
       type: String,
       required: true,
-    },
-  },
-  computed: {
-    isActive() {
-      return this.href === this.$root.currentRoute;
-    },
-  },
-  methods: {
-    go(event) {
-      event.preventDefault();
-      this.$router.push(this.href);
     },
   },
 };

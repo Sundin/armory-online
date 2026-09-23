@@ -17,7 +17,7 @@
 import VLink from './VLink.vue';
 
 export default {
-  name: 'Header',
+  name: 'SiteHeader',
   components: {
     VLink,
   },

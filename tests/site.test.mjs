@@ -5,7 +5,7 @@ import test from 'node:test';
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), 'utf8');
 
 test('the public entry point mounts the Armory app', async () => {
-  const html = await read('public/index.html');
+  const html = await read('index.html');
   assert.match(html, /<title>Armory<\/title>/);
   assert.match(html, /<div id="app"><\/div>/);
 });
