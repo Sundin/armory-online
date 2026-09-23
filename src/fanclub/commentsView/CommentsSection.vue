@@ -3,126 +3,98 @@
     <div v-if="commentPosted" class="new-comment">
       <h3>Thanks for your comment!</h3>
     </div>
-    <div v-else class="new-comment">
+    <form v-else class="new-comment" @submit.prevent="submit">
       <h3>Leave a comment</h3>
-      Name:
-      <br />
+      <label for="comment-name">Name</label>
       <input
+        id="comment-name"
         v-model="name"
+        autocomplete="name"
         placeholder="Your name"
-        v-bind:class="{ invalidInput: invalidName }"
+        :class="{ invalidInput: invalidName }"
       />
-      <p />
-      Comment:
-      <br />
+      <label for="comment-body">Comment</label>
       <textarea
+        id="comment-body"
         v-model="comment"
         placeholder="Write your comment here"
-        v-bind:class="{ invalidInput: invalidComment }"
+        :class="{ invalidInput: invalidComment }"
       />
-
-      <p>
-        <button v-on:click="submit()">Submit</button>
-      </p>
+      <p v-if="errorMessage" class="error-message" role="alert">{{ errorMessage }}</p>
+      <button type="submit" :disabled="submitting">{{ submitting ? 'Transmitting…' : 'Submit' }}</button>
       <slot></slot>
-    </div>
+    </form>
     <h3>Comments:</h3>
+    <p v-if="loading">Receiving transmissions…</p>
     <div class="comments">
-      <div v-for="item in sortedComments" v-bind:key="item.timestampUnique">
-        <Comment v-bind:item="item" />
+      <div v-for="item in sortedComments" :key="item.timestampUnique">
+        <Comment :item="item" />
       </div>
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
 import axios from 'axios';
+import { computed, onMounted, ref } from 'vue';
 import Comment from './Comment.vue';
-
-function randomId() {
-  return 'xxxxxxxx'.replace(/[xy]/g, (c) => {
-    const r = (Math.random() * 16) | 0;
-    const v = c === 'x' ? r : (r & 0x3) | 0x8;
-    return v.toString(16);
-  });
-}
 
 const BASE_URL = 'https://imgtv0cop5.execute-api.eu-west-1.amazonaws.com/Prod/comments';
 
-export default {
-  components: {
-    Comment,
+const props = defineProps({
+  pageId: {
+    type: String,
+    required: true,
   },
-  props: {
-    pageId: {
-      type: String,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      name: '',
-      comment: '',
-      comments: [],
-      invalidName: false,
-      invalidComment: false,
-      commentPosted: false,
-    };
-  },
-  created() {
-    axios
-      .get(`${BASE_URL}/${this.pageId}`)
-      .then((response) => {
-        this.comments = response.data.comments;
-        console.log(response.data.comments);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  },
-  computed: {
-    sortedComments() {
-      return this.comments
-        .slice()
-        .sort((a, b) => (a.timestampUnique < b.timestampUnique ? 1 : -1));
-    },
-  },
-  methods: {
-    submit() {
-      this.invalidName = this.name === '';
-      this.invalidComment = this.comment === '';
-      const self = this;
-      setTimeout(() => {
-        self.invalidName = false;
-        self.invalidComment = false;
-      }, 1500);
-      if (this.invalidName || this.invalidComment) {
-        return;
-      }
+});
 
-      const timestamp = Date.now();
-      const newComment = {
-        name: this.name,
-        comment: this.comment
-          .replace(/\n/g, '<br/>')
-          .replace(/\r/g, '<br/>'),
-        timestampUnique: `${timestamp}-${randomId()}`,
-        createdAt: timestamp,
-      };
+const name = ref('');
+const comment = ref('');
+const comments = ref([]);
+const invalidName = ref(false);
+const invalidComment = ref(false);
+const commentPosted = ref(false);
+const errorMessage = ref('');
+const loading = ref(true);
+const submitting = ref(false);
 
-      this.comments.push(newComment);
-      this.commentPosted = true;
+const sortedComments = computed(() => comments.value.toSorted((a, b) => b.timestampUnique.localeCompare(a.timestampUnique)));
 
-      axios
-        .post(`${BASE_URL}/${this.pageId}`, newComment)
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
-  },
+onMounted(async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/${props.pageId}`);
+    comments.value = Array.isArray(response.data.comments) ? response.data.comments : [];
+  } catch {
+    errorMessage.value = 'The comment archive could not be reached. Try again later.';
+  } finally {
+    loading.value = false;
+  }
+});
+
+async function submit() {
+  invalidName.value = name.value.trim() === '';
+  invalidComment.value = comment.value.trim() === '';
+  errorMessage.value = '';
+  if (invalidName.value || invalidComment.value) return;
+
+  const timestamp = Date.now();
+  const newComment = {
+    name: name.value.trim(),
+    comment: comment.value.trim(),
+    timestampUnique: `${timestamp}-${crypto.randomUUID()}`,
+    createdAt: timestamp,
+  };
+
+  submitting.value = true;
+  try {
+    await axios.post(`${BASE_URL}/${props.pageId}`, newComment);
+    comments.value.push(newComment);
+    commentPosted.value = true;
+  } catch {
+    errorMessage.value = 'Transmission failed. Your comment was not posted.';
+  } finally {
+    submitting.value = false;
+  }
 };
 </script>
 
@@ -132,6 +104,12 @@ div.new-comment {
   border: 2px solid var(--text-color);
   max-width: 666px;
   margin: 0 auto;
+  padding: 1rem;
+}
+label {
+  display: block;
+  font-weight: bold;
+  margin: 1rem 0 0.35rem;
 }
 input,
 textarea {
@@ -142,6 +120,9 @@ textarea {
   border: 2px solid var(--text-color);
   outline: none;
   width: 80%;
+}
+.error-message {
+  color: #ff6868;
 }
 textarea {
   margin: 0 auto;
