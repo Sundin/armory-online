@@ -27,7 +27,7 @@
       <a href="/press_kit.zip" download>Download press kit</a>
     </p>
 
-    <img src="../assets/armory2024.png" />
+    <img src="../assets/armory2024.png" alt="Armory band portrait, 2024" />
 
     <h1>Lineup</h1>
 

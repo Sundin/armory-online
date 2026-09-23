@@ -1,7 +1,8 @@
 <template>
-  <div class="gig-entry">
+  <article class="gig-entry">
     <p v-bind:class="{ cancelled: item.cancelled }">
-      {{ item.date }}:
+      <time :datetime="item.date">{{ item.date }}</time>
+      <span class="gig-details">
       <template v-if="item.link">
         <a :href="item.link">{{ item.venue }}</a>,
         {{ item.location }}
@@ -12,8 +13,9 @@
         –
         <a :href="item.tickets">Tickets</a>.
       </template>
+      </span>
     </p>
-  </div>
+  </article>
 </template>
 
 <script>
@@ -31,10 +33,35 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.gig-entry {
+  border-bottom: 1px dashed var(--line);
+}
+
+.gig-entry p {
+  align-items: baseline;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 7.5rem 1fr;
+  margin: 0;
+  padding: 0.9rem 0;
+}
+
+time {
+  color: var(--link-color);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
 .cancelled {
   text-decoration: line-through;
 }
 
+@media screen and (max-width: 560px) {
+  .gig-entry p {
+    gap: 0.2rem;
+    grid-template-columns: 1fr;
+  }
+}
 </style>
