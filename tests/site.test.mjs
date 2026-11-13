@@ -59,6 +59,7 @@ test('the fanclub page links its supplied transmission GIF and entry text to the
 
   assert.match(fanclub, /src="\.\.\/assets\/armory-on-acid-ufo\.gif"/);
   assert.match(fanclub, /alt="Animated green and black distorted UFO signal"/);
+  assert.match(fanclub, /The Space Marauders is the now disbanded Armory fanclub\./);
   assert.equal((fanclub.match(/to="\/vault7"/g) || []).length, 2);
   assert.match(
     fanclub,

@@ -20,7 +20,7 @@
         <router-link to="/vault7">Click here to enter the restricted fanclub area.</router-link>
       </p>
     </div>
-    <p>The Space Marauders was the now disbanded Armory fanclub.</p>
+    <p>The Space Marauders is the now disbanded Armory fanclub.</p>
 
     <p>
       Each year a unique gift was distributed to all the fanclub members, such as special edition
