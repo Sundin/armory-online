@@ -90,7 +90,7 @@ const products = [
     image: interceptorTshirt,
   },
   {
-    name: 'Armory Trucker Cap',
+    name: 'Trucker Cap',
     url: 'https://www.jawbreaker.se/product/armory-trucker-cap/',
     image: truckerCap,
   },
@@ -100,32 +100,32 @@ const products = [
     image: blackStar,
   },
   {
-    name: 'Armory Metal Pin',
+    name: 'Metal Pin',
     url: 'https://www.jawbreaker.se/product/armory-metal-pin/',
     image: metalPin,
   },
   {
-    name: 'Armory Necklace',
+    name: 'Necklace',
     url: 'https://www.jawbreaker.se/product/armory-necklace/',
     image: necklace,
   },
   {
-    name: 'Armory Triangle Patch',
+    name: 'Triangle Patch',
     url: 'https://www.jawbreaker.se/product/armory-triangle-patch/',
     image: trianglePatch,
   },
   {
-    name: 'Armory Backpatch',
+    name: 'Backpatch',
     url: 'https://www.jawbreaker.se/product/armory-backpatch/',
     image: backpatch,
   },
   {
-    name: 'Armory Poster-Flag',
+    name: 'Poster-Flag',
     url: 'https://www.jawbreaker.se/product/armory-poster-flag/',
     image: posterFlag,
   },
   {
-    name: 'Armory Silk Scarf',
+    name: 'Silk Scarf',
     url: 'https://www.jawbreaker.se/product/armory-silk-scarf/',
     image: silkScarf,
   },
