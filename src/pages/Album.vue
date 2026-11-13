@@ -28,23 +28,6 @@
         </div>
       </header>
 
-      <section class="edition-section">
-        <div class="section-heading">
-          <p class="eyebrow">Known manifestations</p>
-          <h2>Editions</h2>
-        </div>
-        <ul class="edition-list">
-          <li v-for="edition in album.editions" :key="edition.name">
-            <div>
-              <strong>{{ edition.name }}</strong>
-              <span>{{ edition.label }}<template v-if="edition.catalog"> · {{ edition.catalog }}</template></span>
-            </div>
-            <p>{{ edition.notes }}</p>
-            <a :href="edition.source">Metal Archives ↗</a>
-          </li>
-        </ul>
-      </section>
-
       <section class="track-section">
         <div class="section-heading">
           <p class="eyebrow">Signal sequence</p>
@@ -57,6 +40,22 @@
             <span class="track-duration">{{ duration }}</span>
           </li>
         </ol>
+      </section>
+
+      <section class="edition-section">
+        <div class="section-heading">
+          <p class="eyebrow">Known manifestations</p>
+          <h2>Editions</h2>
+        </div>
+        <ul class="edition-list">
+          <li v-for="edition in album.editions" :key="edition.name">
+            <div>
+              <strong>{{ edition.name }}</strong>
+              <span>{{ edition.label }}<template v-if="edition.catalog"> · {{ edition.catalog }}</template></span>
+            </div>
+            <p>{{ edition.notes }}</p>
+          </li>
+        </ul>
       </section>
 
       <nav class="album-navigation" aria-label="Other Armory albums">
@@ -222,8 +221,7 @@ const album = computed(() => albumBySlug(route.params.slug));
 .edition-list li {
   border-bottom: 1px solid rgba(65, 226, 56, 0.2);
   display: grid;
-  gap: 0.4rem 1rem;
-  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.4rem;
   padding: 0.85rem 0;
 }
 
@@ -241,8 +239,7 @@ const album = computed(() => albumBySlug(route.params.slug));
 }
 
 .edition-list span,
-.edition-list p,
-.edition-list a {
+.edition-list p {
   font-size: 0.72rem;
 }
 
@@ -252,16 +249,7 @@ const album = computed(() => albumBySlug(route.params.slug));
 }
 
 .edition-list p {
-  grid-column: 1 / -1;
   margin: 0;
-}
-
-.edition-list a {
-  align-self: start;
-  white-space: nowrap;
-}
-
-.track-section {
 }
 
 .section-heading h2 {
