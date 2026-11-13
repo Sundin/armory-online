@@ -6,9 +6,8 @@
         <slot></slot>
       </div>
       <footer class="site-footer">
-        <span>Armory Command</span>
-        <span aria-hidden="true">★</span>
-        <span>Gothenburg · Earth</span>
+        <span class="site-footer__tagline">Speed Metal</span>
+        <span class="site-footer__history">Armory <span aria-hidden="true">•</span> 2012 - {{ currentYear }}</span>
       </footer>
     </div>
   </div>
@@ -21,6 +20,11 @@ export default {
   name: 'AppLayout',
   components: {
     SiteHeader,
+  },
+  data() {
+    return {
+      currentYear: new Date().getFullYear(),
+    };
   },
 };
 </script>
@@ -220,12 +224,26 @@ li {
   background: rgba(0, 0, 0, 0.88);
   border-top: 1px solid var(--line);
   display: flex;
+  flex-direction: column;
   font: 800 0.66rem/1 var(--body-font);
-  gap: 1rem;
+  gap: 0.55rem;
   justify-content: center;
   letter-spacing: 0.13em;
   padding: 1.5rem;
   text-transform: uppercase;
+}
+
+.site-footer__tagline {
+  color: var(--text-bright);
+  font-size: 0.72rem;
+}
+
+.site-footer__history {
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  opacity: 0.58;
+  text-transform: none;
 }
 
 button:focus-visible,
