@@ -1,7 +1,13 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import test from 'node:test';
-import { paginate, partitionEvents, plainTextComment, publishedEntries } from '../src/lib/content.js';
+import {
+  numberedTransmissions,
+  paginate,
+  partitionEvents,
+  plainTextComment,
+  publishedEntries,
+} from '../src/lib/content.js';
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), 'utf8');
 
@@ -20,6 +26,10 @@ test('content helpers handle dates, pagination, and legacy comment markup safely
   const today = new Date(2026, 8, 23, 23, 30);
 
   assert.deepEqual(publishedEntries(entries, today).map(({ heading }) => heading), ['today', 'older']);
+  assert.deepEqual(
+    numberedTransmissions(publishedEntries(entries, today)).map(({ transmissionNumber }) => transmissionNumber),
+    ['002', '001'],
+  );
   assert.deepEqual(partitionEvents(entries, today).upcoming.map(({ heading }) => heading), ['today', 'future']);
   assert.deepEqual(paginate(entries, 99, 2), { items: [entries[2]], page: 1, pageCount: 2 });
   assert.equal(plainTextComment('hello<br>world<script>alert(1)</script>'), 'hello\nworld');

@@ -18,6 +18,13 @@ export function publishedEntries(entries, today = new Date()) {
   return entries.filter(({ date }) => date <= todayKey).toSorted((a, b) => b.date.localeCompare(a.date));
 }
 
+export function numberedTransmissions(entries) {
+  return entries.map((entry, index) => ({
+    ...entry,
+    transmissionNumber: String(entries.length - index).padStart(3, '0'),
+  }));
+}
+
 export function paginate(items, page, pageSize) {
   const pageCount = Math.max(1, Math.ceil(items.length / pageSize));
   const safePage = Math.min(Math.max(page, 0), pageCount - 1);

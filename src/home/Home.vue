@@ -23,12 +23,12 @@ import { computed, ref } from 'vue';
 import MainLayout from '../layouts/Main.vue';
 import NewsEntry from './NewsEntry.vue';
 import news from './news.json';
-import { paginate, publishedEntries } from '../lib/content';
+import { numberedTransmissions, paginate, publishedEntries } from '../lib/content';
 
 const pageSize = 4;
 const currentPage = ref(0);
 
-const entries = publishedEntries(news);
+const entries = numberedTransmissions(publishedEntries(news));
 const page = computed(() => paginate(entries, currentPage.value, pageSize));
 const numberOfPages = computed(() => page.value.pageCount - 1);
 const newsEntries = computed(() => page.value.items);
