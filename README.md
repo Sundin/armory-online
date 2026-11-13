@@ -45,6 +45,7 @@ Add to `Tour.vue` with the following fields:
 * location
 * link (optional)
 * tickets (optional)
+* endDate (optional, for multi-day events)
 
 ### Add a news entry & updated RSS feed
 Add to [news.json](./src/home/news.json) with the following fields:

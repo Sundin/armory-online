@@ -20,6 +20,26 @@ import GigEntry from './Gig.vue';
 
 const gigs = [
   {
+    date: '2027-03-13',
+    endDate: '2027-03-14',
+    venue: 'Heavy Metal Thunder',
+    location: 'Písek, Czech Republic',
+    link: 'https://www.thrashnightmare.cz/heavy-metal-thunder/',
+  },
+  {
+    date: '2027-05-07',
+    venue: 'Bavarian Metalheadz',
+    location: 'Eggelstetten, Germany',
+    link: 'https://bavarian-metalheadz.de/metalheadz-open-air/',
+  },
+  {
+    date: '2027-07-08',
+    endDate: '2027-07-10',
+    venue: 'Metal Magic Festival',
+    location: 'Fredericia, Denmark',
+    link: 'https://metal-magic.dk/',
+  },
+  {
     date: '2026-09-19',
     location: 'Heavy Nights, Kopervik, Norway',
   },
