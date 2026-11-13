@@ -118,7 +118,6 @@ test('the discography index links all full-length album detail pages', async () 
   assert.match(router, /path:\s*['"]\/albums\/:slug['"]/);
   assert.match(router, /path:\s*['"]\/discography['"]/);
   assert.match(about, /<router-link to="\/discography"><b>Explore the full discography →<\/b><\/router-link>/);
-  assert.doesNotMatch(about, /\/albums\//);
   assert.doesNotMatch(about, /Additional Discography/);
   assert.match(discography, /v-for="album in albums"/);
   assert.match(discography, /:to="`\/albums\/\$\{album\.slug\}`"/);
@@ -130,8 +129,13 @@ test('the discography index links all full-length album detail pages', async () 
   assert.match(discography, /Live in the Abyss/);
   assert.match(discography, /Black Star/);
   for (const slug of slugs) {
+    assert.match(about, new RegExp(`/albums/${slug}`));
     assert.match(albumData, new RegExp(`slug: '${slug}'`));
   }
+  assert.ok(
+    about.indexOf('/albums/echoes-of-the-astrolith') < about.indexOf('/discography'),
+    'the full discography link should follow the four-album list',
+  );
 });
 
 test('about links place the fanclub between merch and U.F.O. sightings', async () => {

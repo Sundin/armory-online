@@ -36,6 +36,24 @@
     <p>Ingelman – Guitars</p>
 
     <h1>Album Discography</h1>
+    <ul class="album-discography-list">
+      <li>
+        <router-link to="/albums/world-peace-cosmic-war"
+          ><b>2016: World Peace... Cosmic War</b></router-link
+        >
+      </li>
+      <li>
+        <router-link to="/albums/the-search"><b>2018: The Search</b></router-link>
+      </li>
+      <li>
+        <router-link to="/albums/mercurion"><b>2022: Mercurion</b></router-link>
+      </li>
+      <li>
+        <router-link to="/albums/echoes-of-the-astrolith"
+          ><b>2026: Echoes of the Astrolith</b></router-link
+        >
+      </li>
+    </ul>
     <p>
       <router-link to="/discography"><b>Explore the full discography →</b></router-link>
     </p>
@@ -98,6 +116,13 @@ export default {
 <style scoped>
 ul {
   list-style-type: none;
+}
+
+.album-discography-list {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0 0 1rem;
+  padding: 0;
 }
 
 h1 {
