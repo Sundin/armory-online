@@ -11,9 +11,12 @@ import {
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), 'utf8');
 
-test('the public entry point mounts the Armory app', async () => {
+test('the public entry point mounts the Armory app with social preview metadata', async () => {
   const html = await read('index.html');
-  assert.match(html, /<title>Armory<\/title>/);
+  assert.match(html, /<title>Armory — Cosmic Speed Metal<\/title>/);
+  assert.match(html, /property="og:title" content="Armory — Cosmic Speed Metal"/);
+  assert.match(html, /property="og:image" content="https:\/\/www\.armory\.se\/armory-social-preview\.png"/);
+  assert.match(html, /name="twitter:card" content="summary_large_image"/);
   assert.match(html, /<div id="app"><\/div>/);
 });
 
