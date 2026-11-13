@@ -61,3 +61,9 @@ test('news entries have valid required fields and dates', async () => {
     assert.ok(!Number.isNaN(Date.parse(`${entry.date}T00:00:00Z`)), `entry ${index} date`);
   }
 });
+
+test('news pages show six entries and a page status', async () => {
+  const home = await read('src/home/Home.vue');
+  assert.match(home, /const pageSize = 6;/);
+  assert.match(home, /Page \{\{ pageNumber \}\} \/ \{\{ totalPages \}\}/);
+});
