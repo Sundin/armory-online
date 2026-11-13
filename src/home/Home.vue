@@ -1,9 +1,8 @@
 <template>
   <main-layout>
     <section class="transmission-header">
-      <p class="kicker">Incoming transmissions // Sol system</p>
+      <p class="kicker"><span aria-hidden="true"></span>Incoming transmissions // Sol system</p>
       <h1>Armory News <a href="/feed.xml" aria-label="Armory news RSS feed"><img alt="" class="rss" src="../assets/rss.png"></a></h1>
-      <p class="status"><span aria-hidden="true"></span> Receiver locked · Archive online</p>
     </section>
     <div class="news-grid">
       <news-entry v-for="item in newsEntries" :key="item.date" :item="item"></news-entry>
@@ -51,8 +50,7 @@ const newerNews = () => {
   text-align: center;
 }
 
-.kicker,
-.status {
+.kicker {
   font-size: 0.66rem;
   font-weight: 900;
   letter-spacing: 0.15em;
@@ -63,11 +61,11 @@ const newerNews = () => {
   color: var(--link-color);
 }
 
-.status span {
+.kicker span {
   animation: pulse 1.2s steps(2) infinite;
-  background: var(--text-color);
+  background: #ff2014;
   border-radius: 50%;
-  box-shadow: 0 0 8px var(--text-color);
+  box-shadow: 0 0 8px #ff2014;
   display: inline-block;
   height: 0.55rem;
   margin-right: 0.35rem;
@@ -94,6 +92,6 @@ const newerNews = () => {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .status span { animation: none; }
+  .kicker span { animation: none; }
 }
 </style>
