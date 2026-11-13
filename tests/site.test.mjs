@@ -54,6 +54,17 @@ test('the core pages remain registered', async () => {
   assert.match(router, /:\s*pathMatch\(\.\*\)\*/);
 });
 
+test('the fanclub page leads with the supplied transmission image', async () => {
+  const fanclub = await read('src/fanclub/Fanclub.vue');
+
+  assert.match(fanclub, /src="\.\.\/assets\/fanclub_signal\.png"/);
+  assert.match(fanclub, /alt="Distorted green Space Marauders transmission"/);
+  assert.ok(
+    fanclub.indexOf('fanclub_signal.png') < fanclub.indexOf('Click here to enter'),
+    'fanclub image should appear before the body copy',
+  );
+});
+
 test('news entries have valid required fields and dates', async () => {
   const news = JSON.parse(await read('src/home/news.json'));
   assert.ok(news.length > 0);
