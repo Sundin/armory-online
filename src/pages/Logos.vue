@@ -44,18 +44,18 @@ const logos = [
     ai: '/downloads/logos/armory-primary-logo-black.ai',
   },
   {
-    name: 'Bat Logo',
-    preview: '/logo-previews/armory-bat-logo-green.webp',
-    alt: 'Alternative Armory bat logo in green',
-    png: '/downloads/logos/armory-bat-logo-black.png',
-    ai: '/downloads/logos/armory-bat-logo-black.ai',
+    name: 'Thin Logo',
+    preview: '/logo-previews/armory-thin-logo-green.webp',
+    alt: 'Thin Armory logo in green',
+    png: '/downloads/logos/armory-thin-logo-black.png',
+    ai: '/downloads/logos/armory-thin-logo-black.ai',
   },
   {
-    name: 'Bat Logo — Hollow',
-    preview: '/logo-previews/armory-bat-logo-hollow-green.webp',
-    alt: 'Alternative hollow Armory bat logo in green',
-    png: '/downloads/logos/armory-bat-logo-hollow-black.png',
-    ai: '/downloads/logos/armory-bat-logo-hollow-black.ai',
+    name: 'Inverted Logo',
+    preview: '/logo-previews/armory-inverted-logo-green.webp',
+    alt: 'Inverted Armory logo in green',
+    png: '/downloads/logos/armory-inverted-logo-black.png',
+    ai: '/downloads/logos/armory-inverted-logo-black.ai',
   },
 ];
 </script>

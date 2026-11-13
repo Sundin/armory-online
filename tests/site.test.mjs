@@ -150,6 +150,9 @@ test('press materials provide logo and high-resolution photo downloads', async (
   assert.equal((photos.match(/Bengt Lövgren/g) || []).length, 1);
   assert.match(photos, /<span>Photo Credit: \{\{ photo\.credit \}\}<\/span>/);
   assert.equal((logos.match(/preview: '\/logo-previews\/[^']+-green\.webp'/g) || []).length, 3);
+  assert.ok(logos.indexOf("name: 'Primary Logo'") < logos.indexOf("name: 'Thin Logo'"));
+  assert.ok(logos.indexOf("name: 'Thin Logo'") < logos.indexOf("name: 'Inverted Logo'"));
+  assert.doesNotMatch(logos, /name: 'Bat Logo/);
   assert.equal((logos.match(/png: '\/downloads\/logos\/[^']+\.png'/g) || []).length, 3);
   assert.equal((logos.match(/ai: '\/downloads\/logos\/[^']+\.ai'/g) || []).length, 3);
   assert.match(logos, /Download Complete Logo Pack/);
