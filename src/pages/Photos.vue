@@ -1,6 +1,7 @@
 <template>
   <main-layout>
     <header class="photos-header">
+      <router-link class="back-link" to="/about">← Back to About</router-link>
       <p class="eyebrow">Visual archive // press access</p>
       <h1>Press Photos</h1>
       <p>Selected Armory press photos. Use the link beneath each image for the original file.</p>
@@ -63,6 +64,21 @@ const photos = [
 <style scoped>
 .photos-header {
   margin-bottom: clamp(2.5rem, 7vw, 4.5rem);
+}
+
+.back-link {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.4rem;
+  opacity: 0.82;
+  text-transform: uppercase;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+  opacity: 1;
 }
 
 .photos-header h1 {

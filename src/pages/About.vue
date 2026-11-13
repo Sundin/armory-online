@@ -23,7 +23,9 @@
       <router-link to="/photos">Explore Photos</router-link>
     </p>
 
-    <img src="../assets/armory2026.jpg" alt="Armory band portrait, 2026" />
+    <router-link class="band-photo-link" to="/photos" aria-label="Explore Armory press photos">
+      <img src="../assets/armory2026.jpg" alt="Armory band portrait, 2026" />
+    </router-link>
 
     <h1>Lineup</h1>
 
@@ -144,5 +146,19 @@ h2 + p {
 
 .press-links b {
   color: var(--text-bright);
+}
+
+.band-photo-link {
+  display: block;
+}
+
+.band-photo-link img {
+  transition: filter 180ms ease, transform 180ms ease;
+}
+
+.band-photo-link:hover img,
+.band-photo-link:focus-visible img {
+  filter: brightness(1.08);
+  transform: scale(1.005);
 }
 </style>
