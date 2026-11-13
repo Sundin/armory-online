@@ -18,7 +18,10 @@
     </p>
 
     <p>
-      <a href="/press_kit.zip" download>Download press kit</a>
+      <a
+        href="https://drive.google.com/drive/folders/1K9sGl-SK6ttO9QuNuneqNiREFNkFSRno?usp=sharing"
+        >Download press kit</a
+      >
     </p>
 
     <img src="../assets/armory2026.jpg" alt="Armory band portrait, 2026" />
