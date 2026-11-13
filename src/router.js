@@ -11,6 +11,7 @@ const Vote = () => import('./pages/Vote.vue');
 const TenYears = () => import('./pages/10years.vue');
 const Ufo = () => import('./pages/Ufo.vue');
 const Album = () => import('./pages/Album.vue');
+const Discography = () => import('./pages/Discography.vue');
 const Photos = () => import('./pages/Photos.vue');
 const Logos = () => import('./pages/Logos.vue');
 const NotFound = () => import('./pages/NotFound.vue');
@@ -30,6 +31,7 @@ const routes = [
   { path: '/vote', component: Vote },
   { path: '/ufo', component: Ufo },
   { path: '/albums/:slug', component: Album },
+  { path: '/discography', component: Discography },
   { path: '/photos', component: Photos },
   { path: '/logos', component: Logos },
   { path: '/:pathMatch(.*)*', component: NotFound },
