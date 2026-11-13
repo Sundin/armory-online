@@ -68,9 +68,14 @@ test('news pages show six entries and a page status', async () => {
   assert.match(home, /Page \{\{ pageNumber \}\} \/ \{\{ totalPages \}\}/);
 });
 
-test('the May 2027 tour schedule includes the TBA dates', async () => {
+test('the May 2027 tour schedule includes coordinate placeholders', async () => {
   const tour = await read('src/tour/Tour.vue');
   for (const day of ['01', '02', '03', '04', '05', '06', '08']) {
-    assert.match(tour, new RegExp(`date: '2027-05-${day}',\\n    location: 'TBA'`));
+    assert.match(
+      tour,
+      new RegExp(
+        `date: '2027-05-${day}',\\n    location: 'Planet Earth – Stand by for coordinates'`,
+      ),
+    );
   }
 });
