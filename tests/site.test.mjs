@@ -98,3 +98,12 @@ test('press materials provide logo and high-resolution photo downloads', async (
   assert.equal((photos.match(/Download in High Resolution/g) || []).length, 1);
   assert.equal((photos.match(/drive\.usercontent\.google\.com\/download\?id=/g) || []).length, 5);
 });
+
+test('footer aligns the command and history markers', async () => {
+  const layout = await read('src/layouts/Main.vue');
+
+  assert.match(layout, />Cosmic Speed Metal<\/span>/);
+  assert.match(layout, /site-footer__marker[^>]*aria-hidden="true">★<\/span>/);
+  assert.match(layout, /site-footer__history site-footer__marker[^>]*aria-hidden="true">•<\/span>/);
+  assert.match(layout, /grid-template-columns: minmax\(0, 1fr\) auto minmax\(0, 1fr\)/);
+});
