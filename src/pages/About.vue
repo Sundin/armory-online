@@ -18,7 +18,7 @@
     </p>
 
     <p class="press-links">
-      <a href="/downloads/armory-logos.zip" download>Download Logo</a>
+      <router-link to="/logos">Download Logo</router-link>
       <b aria-hidden="true">•</b>
       <router-link to="/photos">Explore Photos</router-link>
     </p>
