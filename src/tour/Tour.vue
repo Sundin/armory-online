@@ -28,27 +28,27 @@ const gigs = [
   },
   {
     date: '2027-05-01',
-    location: 'TBA',
+    location: 'Planet Earth – Stand by for coordinates',
   },
   {
     date: '2027-05-02',
-    location: 'TBA',
+    location: 'Planet Earth – Stand by for coordinates',
   },
   {
     date: '2027-05-03',
-    location: 'TBA',
+    location: 'Planet Earth – Stand by for coordinates',
   },
   {
     date: '2027-05-04',
-    location: 'TBA',
+    location: 'Planet Earth – Stand by for coordinates',
   },
   {
     date: '2027-05-05',
-    location: 'TBA',
+    location: 'Planet Earth – Stand by for coordinates',
   },
   {
     date: '2027-05-06',
-    location: 'TBA',
+    location: 'Planet Earth – Stand by for coordinates',
   },
   {
     date: '2027-05-07',
@@ -58,7 +58,7 @@ const gigs = [
   },
   {
     date: '2027-05-08',
-    location: 'TBA',
+    location: 'Planet Earth – Stand by for coordinates',
   },
   {
     date: '2027-07-08',

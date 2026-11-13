@@ -11,7 +11,7 @@
       the fourth full-length album <span class="title">“Echoes of the Astrolith”</span> (released by
       Dying Victims Productions in October 2026), the first to feature new turbo-laser vocalist
       Chris Rostoff (also known as the voice of fellow speed metallers Steel Inferno). The album is
-      a bold statement of interstellar darkness and crazed speed metal riffing, and further cements
+      a potent mixture of interstellar darkness and crazed speed metal riffing, and further cements
       the fact that Armory is a force to be reckoned with on the intergalactic battleground. Expect
       a rapid barrage of hyperspeed metal with influences from the dark cold void that engulfs us
       all – no solar system will be safe from the onslaught of ARMORY.
