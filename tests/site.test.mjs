@@ -43,6 +43,11 @@ test('the core pages remain registered', async () => {
   for (const path of ['/', '/about', '/tour', '/fanclub', '/merch']) {
     assert.match(router, new RegExp(`path:\\s*['"]${path}['"]`), `missing route ${path}`);
   }
+  for (const component of ['Home', 'About', 'Tour', 'Fanclub', 'Merch']) {
+    assert.match(router, new RegExp(`import ${component} from`), `${component} should load with the main navigation`);
+  }
+  assert.match(router, /router\.onError/);
+  assert.match(router, /window\.location\.assign\(retryPath\)/);
   assert.match(router, /:\s*pathMatch\(\.\*\)\*/);
 });
 
