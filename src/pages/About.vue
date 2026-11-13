@@ -106,4 +106,21 @@ export default {
 ul {
   list-style-type: none;
 }
+
+h1 {
+  margin: 2.75rem 0 0.45rem;
+}
+
+h1:first-child {
+  margin-top: 0;
+}
+
+h2 {
+  margin: 2.25rem 0 0.45rem;
+}
+
+h1 + p,
+h2 + p {
+  margin-top: 0;
+}
 </style>
