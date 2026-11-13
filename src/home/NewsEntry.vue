@@ -1,5 +1,6 @@
 <template>
   <article class="news-entry">
+    <span class="transmission-number">Transmission {{ item.transmissionNumber }}</span>
     <time :datetime="item.date">{{ item.date }}</time>
     <h3>{{ item.heading }}</h3>
     <div class="entry-body" v-html="item.body"></div>
@@ -35,9 +36,8 @@ const imageUrl = (path) => images[`../${path}`];
   position: relative;
 }
 
-.news-entry::after {
+.transmission-number {
   color: rgba(65, 226, 56, 0.36);
-  content: "END TRANSMISSION";
   font-size: 0.55rem;
   font-weight: 900;
   letter-spacing: 0.16em;
