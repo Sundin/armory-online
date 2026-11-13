@@ -121,6 +121,17 @@ test('each full-length album has a linked detail page', async () => {
   }
 });
 
+test('about links place the fanclub between merch and U.F.O. sightings', async () => {
+  const about = await read('src/pages/About.vue');
+  const merch = 'Official Merch';
+  const fanclub = '<router-link to="/fanclub">Fanclub</router-link>';
+  const sightings = 'Confirmed U.F.O. Sightings';
+
+  assert.match(about, /<router-link to="\/fanclub">Fanclub<\/router-link>/);
+  assert.ok(about.indexOf(merch) < about.indexOf(fanclub));
+  assert.ok(about.indexOf(fanclub) < about.indexOf(sightings));
+});
+
 test('album pages prioritize tracks and list only physical editions', async () => {
   const albumPage = await read('src/pages/Album.vue');
   const albumData = await read('src/data/albums.js');

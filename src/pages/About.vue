@@ -85,6 +85,9 @@
       <a href="https://www.jawbreaker.se/product-tag/armory/">Official Merch</a>
     </p>
     <p>
+      <router-link to="/fanclub">Fanclub</router-link>
+    </p>
+    <p>
       <a href="/ufo">Confirmed U.F.O. Sightings</a>
     </p>
     <h2>Videos</h2>
