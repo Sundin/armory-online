@@ -8,12 +8,15 @@
       <news-entry v-for="item in newsEntries" :key="item.date" :item="item"></news-entry>
     </div>
     <nav class="pagination" aria-label="News pages">
-      <button v-if="currentPage !== numberOfPages" @click="olderNews">
-      Older news
-      </button>
-      <button v-if="currentPage !== 0" @click="newerNews">
-      Newer news
-      </button>
+      <div class="pagination-controls">
+        <button v-if="currentPage !== lastPage" @click="olderNews">
+        Older news
+        </button>
+        <button v-if="currentPage !== 0" @click="newerNews">
+        Newer news
+        </button>
+      </div>
+      <p class="pagination-status" aria-live="polite">Page {{ pageNumber }} / {{ totalPages }}</p>
     </nav>
   </main-layout>
 </template>
@@ -25,16 +28,18 @@ import NewsEntry from './NewsEntry.vue';
 import news from './news.json';
 import { numberedTransmissions, paginate, publishedEntries } from '../lib/content';
 
-const pageSize = 4;
+const pageSize = 6;
 const currentPage = ref(0);
 
 const entries = numberedTransmissions(publishedEntries(news));
 const page = computed(() => paginate(entries, currentPage.value, pageSize));
-const numberOfPages = computed(() => page.value.pageCount - 1);
+const lastPage = computed(() => page.value.pageCount - 1);
+const pageNumber = computed(() => page.value.page + 1);
+const totalPages = computed(() => page.value.pageCount);
 const newsEntries = computed(() => page.value.items);
 
 const olderNews = () => {
-  currentPage.value = Math.min(currentPage.value + 1, numberOfPages.value);
+  currentPage.value = Math.min(currentPage.value + 1, lastPage.value);
 };
 
 const newerNews = () => {
@@ -82,9 +87,25 @@ const newerNews = () => {
 }
 
 .pagination {
+  align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-top: 1.5rem;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination-status {
+  color: rgba(196, 255, 129, 0.68);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  margin: 0.4rem 0 0;
+  text-transform: uppercase;
 }
 
 @keyframes pulse {
