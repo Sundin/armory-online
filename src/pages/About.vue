@@ -38,20 +38,16 @@
     <h1>Album Discography</h1>
     <ul class="album-discography-list">
       <li>
-        <router-link to="/albums/world-peace-cosmic-war"
-          ><b>2016: World Peace... Cosmic War</b></router-link
-        >
+        <b>2016: World Peace... Cosmic War</b>
       </li>
       <li>
-        <router-link to="/albums/the-search"><b>2018: The Search</b></router-link>
+        <b>2018: The Search</b>
       </li>
       <li>
-        <router-link to="/albums/mercurion"><b>2022: Mercurion</b></router-link>
+        <b>2022: Mercurion</b>
       </li>
       <li>
-        <router-link to="/albums/echoes-of-the-astrolith"
-          ><b>2026: Echoes of the Astrolith</b></router-link
-        >
+        <b>2026: Echoes of the Astrolith</b>
       </li>
     </ul>
     <p>
@@ -119,6 +115,7 @@ ul {
 }
 
 .album-discography-list {
+  color: var(--text-bright);
   display: grid;
   gap: 0.55rem;
   margin: 0 0 1rem;

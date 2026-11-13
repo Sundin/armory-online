@@ -129,11 +129,15 @@ test('the discography index links all full-length album detail pages', async () 
   assert.match(discography, /Live in the Abyss/);
   assert.match(discography, /Black Star/);
   for (const slug of slugs) {
-    assert.match(about, new RegExp(`/albums/${slug}`));
     assert.match(albumData, new RegExp(`slug: '${slug}'`));
   }
+  assert.doesNotMatch(about, /\/albums\//);
+  assert.match(about, /2016: World Peace\.\.\. Cosmic War/);
+  assert.match(about, /2018: The Search/);
+  assert.match(about, /2022: Mercurion/);
+  assert.match(about, /2026: Echoes of the Astrolith/);
   assert.ok(
-    about.indexOf('/albums/echoes-of-the-astrolith') < about.indexOf('/discography'),
+    about.indexOf('2026: Echoes of the Astrolith') < about.indexOf('/discography'),
     'the full discography link should follow the four-album list',
   );
 });
