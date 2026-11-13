@@ -15,7 +15,10 @@ test('the public entry point mounts the Armory app with social preview metadata'
   const html = await read('index.html');
   assert.match(html, /<title>Armory — Cosmic Speed Metal<\/title>/);
   assert.match(html, /property="og:title" content="Armory — Cosmic Speed Metal"/);
-  assert.match(html, /property="og:image" content="https:\/\/www\.armory\.se\/armory-social-preview\.png"/);
+  assert.match(
+    html,
+    /property="og:image" content="https:\/\/www\.armory\.se\/armory-social-preview-photo\.png"/,
+  );
   assert.match(html, /name="twitter:card" content="summary_large_image"/);
   assert.match(html, /<div id="app"><\/div>/);
 });
@@ -112,4 +115,26 @@ test('album pages list sourced editions without redundant quick facts', async ()
   assert.match(albumData, /Listen carefully to the echoes…/);
   assert.match(albumData, /spaceship Mercurion/);
   assert.match(albumData, /What is more terrifying/);
+});
+
+test('press materials provide logo and high-resolution photo downloads', async () => {
+  const about = await read('src/pages/About.vue');
+  const photos = await read('src/pages/Photos.vue');
+  const router = await read('src/router.js');
+
+  assert.match(about, /href="\/downloads\/armory-logos\.zip" download>Download Logo/);
+  assert.match(about, /<router-link to="\/photos">Explore Photos<\/router-link>/);
+  assert.match(router, /path:\s*['"]\/photos['"]/);
+  assert.equal((photos.match(/preview: '\/press-photos\/armory-press-\d\.webp'/g) || []).length, 5);
+  assert.equal((photos.match(/Download in High Resolution/g) || []).length, 1);
+  assert.equal((photos.match(/drive\.usercontent\.google\.com\/download\?id=/g) || []).length, 5);
+});
+
+test('footer aligns the command and history markers', async () => {
+  const layout = await read('src/layouts/Main.vue');
+
+  assert.match(layout, />Cosmic Speed Metal<\/span>/);
+  assert.match(layout, /site-footer__marker[^>]*aria-hidden="true">★<\/span>/);
+  assert.match(layout, /site-footer__history site-footer__marker[^>]*aria-hidden="true">•<\/span>/);
+  assert.match(layout, /grid-template-columns: minmax\(0, 1fr\) auto minmax\(0, 1fr\)/);
 });

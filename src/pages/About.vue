@@ -17,11 +17,10 @@
       all – no solar system will be safe from the onslaught of ARMORY.
     </p>
 
-    <p>
-      <a
-        href="https://drive.google.com/drive/folders/1K9sGl-SK6ttO9QuNuneqNiREFNkFSRno?usp=sharing"
-        >Download press kit</a
-      >
+    <p class="press-links">
+      <a href="/downloads/armory-logos.zip" download>Download Logo</a>
+      <b aria-hidden="true">•</b>
+      <router-link to="/photos">Explore Photos</router-link>
     </p>
 
     <img src="../assets/armory2026.jpg" alt="Armory band portrait, 2026" />
@@ -134,5 +133,16 @@ h2 {
 h1 + p,
 h2 + p {
   margin-top: 0;
+}
+
+.press-links {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.press-links b {
+  color: var(--text-bright);
 }
 </style>

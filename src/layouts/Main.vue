@@ -6,12 +6,14 @@
         <slot></slot>
       </div>
       <footer class="site-footer">
-        <div class="site-footer__command">
-          <span>Speed Metal</span>
-          <span aria-hidden="true">★</span>
-          <span>Gothenburg · Earth</span>
+        <div class="site-footer__grid">
+          <span class="site-footer__left">Cosmic Speed Metal</span>
+          <span class="site-footer__marker" aria-hidden="true">★</span>
+          <span class="site-footer__right">Gothenburg · Earth</span>
+          <span class="site-footer__history site-footer__left">Armory</span>
+          <span class="site-footer__history site-footer__marker" aria-hidden="true">•</span>
+          <span class="site-footer__history site-footer__right">2012 - {{ currentYear }}</span>
         </div>
-        <span class="site-footer__history">Armory <span aria-hidden="true">•</span> 2012 - {{ currentYear }}</span>
       </footer>
     </div>
   </div>
@@ -224,23 +226,35 @@ li {
 }
 
 .site-footer {
-  align-items: center;
   background: rgba(0, 0, 0, 0.88);
   border-top: 1px solid var(--line);
-  display: flex;
-  flex-direction: column;
   font: 800 0.66rem/1 var(--body-font);
-  gap: 0.55rem;
-  justify-content: center;
   letter-spacing: 0.13em;
   padding: 1.5rem;
   text-transform: uppercase;
 }
 
-.site-footer__command {
+.site-footer__grid {
   align-items: center;
-  display: flex;
-  gap: 1rem;
+  column-gap: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  margin: 0 auto;
+  max-width: 36rem;
+  row-gap: 0.55rem;
+  width: 100%;
+}
+
+.site-footer__left {
+  text-align: right;
+}
+
+.site-footer__marker {
+  text-align: center;
+}
+
+.site-footer__right {
+  text-align: left;
 }
 
 .site-footer__history {
@@ -249,6 +263,11 @@ li {
   letter-spacing: 0.1em;
   opacity: 0.58;
   text-transform: none;
+}
+
+.site-footer__left,
+.site-footer__right {
+  white-space: nowrap;
 }
 
 button:focus-visible,
