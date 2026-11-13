@@ -96,6 +96,21 @@
     <p>
       <a href="https://www.youtube.com/watch?v=9YDNAMrtTVU">The Search album trailer</a>
     </p>
+
+    <section class="band-photos-preview" aria-labelledby="band-photos-heading">
+      <h1 id="band-photos-heading">Band Photos</h1>
+      <router-link class="band-photos-preview__image" to="/photos" aria-label="Explore all Armory band photos">
+        <img
+          src="/press-photos/armory-press-1.webp"
+          alt="Armory standing on a rocky shore beneath storm clouds"
+          loading="lazy"
+          decoding="async"
+        />
+      </router-link>
+      <p>
+        <router-link class="band-photos-preview__button" to="/photos">Explore All Photos →</router-link>
+      </p>
+    </section>
   </main-layout>
 </template>
 
@@ -162,5 +177,43 @@ h2 + p {
 .band-photo-link:focus-visible img {
   filter: brightness(1.08);
   transform: scale(1.005);
+}
+
+.band-photos-preview {
+  margin-top: 2.75rem;
+}
+
+.band-photos-preview h1 {
+  margin-top: 0;
+}
+
+.band-photos-preview__image {
+  display: block;
+  margin-top: 1rem;
+  max-width: 760px;
+}
+
+.band-photos-preview__image img {
+  border: 1px solid rgba(65, 226, 56, 0.45);
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.72), 0 0 28px rgba(65, 226, 56, 0.12);
+  display: block;
+  transition: filter 180ms ease, transform 180ms ease;
+  width: 100%;
+}
+
+.band-photos-preview__image:hover img,
+.band-photos-preview__image:focus-visible img {
+  filter: brightness(1.08);
+  transform: scale(1.005);
+}
+
+.band-photos-preview__button {
+  border: 1px solid var(--link-color);
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 0.7rem 0.9rem;
+  text-transform: uppercase;
 }
 </style>
