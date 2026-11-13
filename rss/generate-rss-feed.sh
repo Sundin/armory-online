@@ -25,6 +25,7 @@ for ((i = 0 ; i < $numberOfEntries ; i++)); do
 
     entry=$(echo $news | jq -r ".[$i].body")
 
+    entry="${entry//&/&amp;}"
     entry="${entry//\"/&quot;}"
     entry="${entry//</&lt;}"
     entry="${entry//>/&gt;}"
