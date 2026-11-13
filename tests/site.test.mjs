@@ -86,6 +86,37 @@ test('the May 2027 tour schedule includes coordinate placeholders', async () => 
   }
 });
 
+test('each full-length album has a linked detail page', async () => {
+  const router = await read('src/router.js');
+  const about = await read('src/pages/About.vue');
+  const albumData = await read('src/data/albums.js');
+  const slugs = [
+    'world-peace-cosmic-war',
+    'the-search',
+    'mercurion',
+    'echoes-of-the-astrolith',
+  ];
+
+  assert.match(router, /path:\s*['"]\/albums\/:slug['"]/);
+  for (const slug of slugs) {
+    assert.match(about, new RegExp(`/albums/${slug}`));
+    assert.match(albumData, new RegExp(`slug: '${slug}'`));
+  }
+});
+
+test('album pages list sourced editions without redundant quick facts', async () => {
+  const albumPage = await read('src/pages/Album.vue');
+  const albumData = await read('src/data/albums.js');
+
+  assert.doesNotMatch(albumPage, /<dt>Tracks<\/dt>/);
+  assert.doesNotMatch(albumPage, /Physical transmission/);
+  assert.match(albumPage, /<h2>Editions<\/h2>/);
+  assert.match(albumData, /Metal-archives\.com/i);
+  assert.match(albumData, /Listen carefully to the echoes…/);
+  assert.match(albumData, /spaceship Mercurion/);
+  assert.match(albumData, /What is more terrifying/);
+});
+
 test('press materials provide logo and high-resolution photo downloads', async () => {
   const about = await read('src/pages/About.vue');
   const photos = await read('src/pages/Photos.vue');
