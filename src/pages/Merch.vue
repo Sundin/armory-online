@@ -17,7 +17,7 @@
           <img :src="product.image" :alt="product.name" loading="lazy" />
         </span>
         <span class="merch-name">{{ product.name }}</span>
-        <span class="merch-cta">View transmission <span aria-hidden="true">↗</span></span>
+        <span class="merch-cta" aria-hidden="true">↗</span>
       </a>
     </div>
 
@@ -230,13 +230,14 @@ export default {
 }
 
 .merch-cta {
+  align-self: flex-end;
   color: var(--link-color);
-  font-size: 0.68rem;
+  font-size: 1.3rem;
   font-weight: 900;
-  letter-spacing: 0.12em;
+  line-height: 1;
   margin-top: auto;
-  padding: 0 0.55rem 0.65rem;
-  text-transform: uppercase;
+  padding: 0.1rem 0.55rem 0.55rem;
+  transition: color 180ms ease, transform 180ms ease;
 }
 
 .merch-card:hover,
@@ -263,6 +264,12 @@ export default {
 .merch-card:focus-visible .merch-image img {
   filter: contrast(1.08) saturate(1.12);
   transform: scale(1.055);
+}
+
+.merch-card:hover .merch-cta,
+.merch-card:focus-visible .merch-cta {
+  color: #fff;
+  transform: translate(0.18rem, -0.18rem);
 }
 
 .merch-support {
@@ -294,7 +301,8 @@ export default {
   .merch-card,
   .merch-card::before,
   .merch-card::after,
-  .merch-image img {
+  .merch-image img,
+  .merch-cta {
     transition: none;
   }
 
