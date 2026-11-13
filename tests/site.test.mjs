@@ -146,6 +146,11 @@ test('press materials provide logo and high-resolution photo downloads', async (
 
   assert.match(about, /<router-link to="\/logos">Download Logo<\/router-link>/);
   assert.match(about, /<router-link to="\/photos">Explore Photos<\/router-link>/);
+  assert.match(
+    about,
+    /<router-link class="band-photo-link" to="\/photos"[\s\S]*?<img src="\.\.\/assets\/armory2026\.jpg"/,
+  );
+  assert.match(photos, /<router-link class="back-link" to="\/about">← Back to About<\/router-link>/);
   assert.match(router, /path:\s*['"]\/photos['"]/);
   assert.match(router, /path:\s*['"]\/logos['"]/);
   assert.equal((photos.match(/preview: '\/press-photos\/armory-press-\d\.webp'/g) || []).length, 5);
