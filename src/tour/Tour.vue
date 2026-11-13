@@ -27,10 +27,38 @@ const gigs = [
     link: 'https://www.thrashnightmare.cz/heavy-metal-thunder/',
   },
   {
+    date: '2027-05-01',
+    location: 'TBA',
+  },
+  {
+    date: '2027-05-02',
+    location: 'TBA',
+  },
+  {
+    date: '2027-05-03',
+    location: 'TBA',
+  },
+  {
+    date: '2027-05-04',
+    location: 'TBA',
+  },
+  {
+    date: '2027-05-05',
+    location: 'TBA',
+  },
+  {
+    date: '2027-05-06',
+    location: 'TBA',
+  },
+  {
     date: '2027-05-07',
     venue: 'Bavarian Metalheadz',
     location: 'Eggelstetten, Germany',
     link: 'https://bavarian-metalheadz.de/metalheadz-open-air/',
+  },
+  {
+    date: '2027-05-08',
+    location: 'TBA',
   },
   {
     date: '2027-07-08',
