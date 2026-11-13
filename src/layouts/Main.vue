@@ -6,7 +6,11 @@
         <slot></slot>
       </div>
       <footer class="site-footer">
-        <span class="site-footer__tagline">Speed Metal</span>
+        <div class="site-footer__command">
+          <span>Speed Metal</span>
+          <span aria-hidden="true">★</span>
+          <span>Gothenburg · Earth</span>
+        </div>
         <span class="site-footer__history">Armory <span aria-hidden="true">•</span> 2012 - {{ currentYear }}</span>
       </footer>
     </div>
@@ -233,9 +237,10 @@ li {
   text-transform: uppercase;
 }
 
-.site-footer__tagline {
-  color: var(--text-bright);
-  font-size: 0.72rem;
+.site-footer__command {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
 }
 
 .site-footer__history {
