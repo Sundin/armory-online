@@ -43,12 +43,15 @@ test('content helpers handle dates, pagination, and legacy comment markup safely
 
 test('the core pages remain registered', async () => {
   const router = await read('src/router.js');
-  for (const path of ['/', '/about', '/tour', '/fanclub', '/merch']) {
+  const header = await read('src/components/Header.vue');
+  for (const path of ['/', '/about', '/tour', '/fanclub', '/merch', '/discography']) {
     assert.match(router, new RegExp(`path:\\s*['"]${path}['"]`), `missing route ${path}`);
   }
   for (const component of ['Home', 'About', 'Tour', 'Fanclub', 'Merch']) {
-    assert.match(router, new RegExp(`import ${component} from`), `${component} should load with the main navigation`);
+    assert.match(router, new RegExp(`import ${component} from`), `${component} should remain registered`);
   }
+  assert.match(header, /<v-link href="\/discography">Discography<\/v-link>/);
+  assert.doesNotMatch(header, /<v-link href="\/fanclub">/);
   assert.match(router, /router\.onError/);
   assert.match(router, /window\.location\.assign\(retryPath\)/);
   assert.match(router, /:\s*pathMatch\(\.\*\)\*/);
