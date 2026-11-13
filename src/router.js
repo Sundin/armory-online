@@ -10,6 +10,7 @@ const Lab = () => import('./fanclub/Lab.vue');
 const Vote = () => import('./pages/Vote.vue');
 const TenYears = () => import('./pages/10years.vue');
 const Ufo = () => import('./pages/Ufo.vue');
+const Photos = () => import('./pages/Photos.vue');
 const NotFound = () => import('./pages/NotFound.vue');
 
 const STALE_ROUTE_RELOAD_KEY = 'armory:stale-route-reload';
@@ -26,6 +27,7 @@ const routes = [
   { path: '/10years', component: TenYears },
   { path: '/vote', component: Vote },
   { path: '/ufo', component: Ufo },
+  { path: '/photos', component: Photos },
   { path: '/:pathMatch(.*)*', component: NotFound },
 ];
 
