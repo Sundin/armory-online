@@ -103,9 +103,10 @@ test('the May 2027 tour schedule includes coordinate placeholders', async () => 
   }
 });
 
-test('each full-length album has a linked detail page', async () => {
+test('the discography index links all full-length album detail pages', async () => {
   const router = await read('src/router.js');
   const about = await read('src/pages/About.vue');
+  const discography = await read('src/pages/Discography.vue');
   const albumData = await read('src/data/albums.js');
   const slugs = [
     'world-peace-cosmic-war',
@@ -115,8 +116,20 @@ test('each full-length album has a linked detail page', async () => {
   ];
 
   assert.match(router, /path:\s*['"]\/albums\/:slug['"]/);
+  assert.match(router, /path:\s*['"]\/discography['"]/);
+  assert.match(about, /<router-link to="\/discography"><b>Explore the full discography →<\/b><\/router-link>/);
+  assert.doesNotMatch(about, /\/albums\//);
+  assert.doesNotMatch(about, /Additional Discography/);
+  assert.match(discography, /v-for="album in albums"/);
+  assert.match(discography, /:to="`\/albums\/\$\{album\.slug\}`"/);
+  assert.match(discography, /grid-template-columns: repeat\(2, minmax\(0, 1fr\)\)/);
+  assert.match(discography, /<h2>Additional Discography<\/h2>/);
+  assert.match(discography, /Open Fire!/);
+  assert.match(discography, /S\.M\.I\./);
+  assert.match(discography, /Critical Mass Vol\. 3/);
+  assert.match(discography, /Live in the Abyss/);
+  assert.match(discography, /Black Star/);
   for (const slug of slugs) {
-    assert.match(about, new RegExp(`/albums/${slug}`));
     assert.match(albumData, new RegExp(`slug: '${slug}'`));
   }
 });

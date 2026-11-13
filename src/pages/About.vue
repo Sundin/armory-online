@@ -37,31 +37,8 @@
 
     <h1>Album Discography</h1>
     <p>
-      <router-link to="/albums/world-peace-cosmic-war"
-        ><b>2016: World Peace... Cosmic War</b></router-link
-      >
+      <router-link to="/discography"><b>Explore the full discography →</b></router-link>
     </p>
-    <p>
-      <router-link to="/albums/the-search"><b>2018: The Search</b></router-link>
-    </p>
-    <p>
-      <router-link to="/albums/mercurion"><b>2022: Mercurion</b></router-link>
-    </p>
-    <p>
-      <router-link to="/albums/echoes-of-the-astrolith"
-        ><b>2026: Echoes of the Astrolith</b></router-link
-      >
-    </p>
-
-    <h1>Additional Discography</h1>
-    <p>2013: Open Fire! (Demo)</p>
-    <p>2015: S.M.I. (Demo)</p>
-    <p>
-      2016: Critical Mass Vol. 3 <br />(compilation appearance with the song
-      <span class="title">High Speed Death</span>)
-    </p>
-    <p>2018: Live in the Abyss (<a href="/fanclub">Fanclub</a>-only Live Cassette)</p>
-    <p>2025: Black Star (7" single)</p>
 
     <h1>Links</h1>
     <p>
