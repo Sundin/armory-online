@@ -104,14 +104,18 @@ test('each full-length album has a linked detail page', async () => {
   }
 });
 
-test('album pages list sourced editions without redundant quick facts', async () => {
+test('album pages prioritize tracks and list only physical editions', async () => {
   const albumPage = await read('src/pages/Album.vue');
   const albumData = await read('src/data/albums.js');
 
   assert.doesNotMatch(albumPage, /<dt>Tracks<\/dt>/);
   assert.doesNotMatch(albumPage, /Physical transmission/);
   assert.match(albumPage, /<h2>Editions<\/h2>/);
-  assert.match(albumData, /Metal-archives\.com/i);
+  assert.ok(albumPage.indexOf('<h2>Track list</h2>') < albumPage.indexOf('<h2>Editions</h2>'));
+  assert.doesNotMatch(albumPage, /Metal Archives/i);
+  assert.doesNotMatch(albumPage, /edition\.source/);
+  assert.doesNotMatch(albumData, /Metal-archives\.com/i);
+  assert.doesNotMatch(albumData, /name: 'Digital/);
   assert.match(albumData, /Listen carefully to the echoes…/);
   assert.match(albumData, /spaceship Mercurion/);
   assert.match(albumData, /What is more terrifying/);
