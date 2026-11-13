@@ -5,7 +5,13 @@
     <h3>{{ item.heading }}</h3>
     <div class="entry-body" v-html="item.body"></div>
     <div v-if="item.image" class="entry-image">
-      <img :src="imageUrl(item.image)" :alt="item.heading" loading="lazy" decoding="async">
+      <img
+        :class="{ 'full-poster': item.imageDisplay === 'full' }"
+        :src="imageUrl(item.image)"
+        :alt="item.heading"
+        loading="lazy"
+        decoding="async"
+      >
     </div>
   </article>
 </template>
@@ -69,5 +75,14 @@ h3 {
   max-height: 620px;
   object-fit: cover;
   width: 100%;
+}
+
+.entry-image img.full-poster {
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: none;
+  max-width: 760px;
+  object-fit: contain;
 }
 </style>

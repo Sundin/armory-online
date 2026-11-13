@@ -60,6 +60,9 @@ test('news entries have valid required fields and dates', async () => {
     assert.match(entry.date, /^\d{4}-\d{2}-\d{2}$/, `entry ${index} date`);
     assert.ok(!Number.isNaN(Date.parse(`${entry.date}T00:00:00Z`)), `entry ${index} date`);
   }
+
+  assert.equal(news[0].image, 'assets/echoes_of_the_astrolith_flyer.webp');
+  assert.equal(news[0].imageDisplay, 'full');
 });
 
 test('news pages show six entries and a page status', async () => {
