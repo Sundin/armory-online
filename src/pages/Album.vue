@@ -22,19 +22,28 @@
               <dt>Label</dt>
               <dd>{{ album.label }}</dd>
             </div>
-            <div>
-              <dt>Tracks</dt>
-              <dd>{{ album.tracks.length }}</dd>
-            </div>
-            <div v-if="album.formatNote" class="wide">
-              <dt>Physical transmission</dt>
-              <dd>{{ album.formatNote }}</dd>
-            </div>
           </dl>
 
           <a class="signal-link" :href="album.bandcamp">Listen / buy on Bandcamp ↗</a>
         </div>
       </header>
+
+      <section class="edition-section">
+        <div class="section-heading">
+          <p class="eyebrow">Known manifestations</p>
+          <h2>Editions</h2>
+        </div>
+        <ul class="edition-list">
+          <li v-for="edition in album.editions" :key="edition.name">
+            <div>
+              <strong>{{ edition.name }}</strong>
+              <span>{{ edition.label }}<template v-if="edition.catalog"> · {{ edition.catalog }}</template></span>
+            </div>
+            <p>{{ edition.notes }}</p>
+            <a :href="edition.source">Metal Archives ↗</a>
+          </li>
+        </ul>
+      </section>
 
       <section class="track-section">
         <div class="section-heading">
@@ -156,7 +165,7 @@ const album = computed(() => albumBySlug(route.params.slug));
   border-bottom: 1px solid var(--album-line);
   border-top: 1px solid var(--album-line);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   margin: 0 0 1.5rem;
 }
 
@@ -169,15 +178,8 @@ const album = computed(() => albumBySlug(route.params.slug));
   padding-left: 0.85rem;
 }
 
-.release-data div:nth-child(3) {
+.release-data div:nth-child(2) {
   border-right: 0;
-}
-
-.release-data .wide {
-  border-right: 0;
-  border-top: 1px solid var(--album-line);
-  grid-column: 1 / -1;
-  padding-left: 0;
 }
 
 .release-data dt {
@@ -201,6 +203,7 @@ const album = computed(() => albumBySlug(route.params.slug));
   text-transform: uppercase;
 }
 
+.edition-section,
 .track-section {
   border-top: 1px dashed var(--album-line);
   display: grid;
@@ -208,6 +211,57 @@ const album = computed(() => albumBySlug(route.params.slug));
   grid-template-columns: minmax(170px, 0.62fr) minmax(0, 1.38fr);
   margin-top: clamp(3rem, 8vw, 6rem);
   padding-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.edition-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.edition-list li {
+  border-bottom: 1px solid rgba(65, 226, 56, 0.2);
+  display: grid;
+  gap: 0.4rem 1rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 0.85rem 0;
+}
+
+.edition-list li:first-child {
+  border-top: 1px solid rgba(65, 226, 56, 0.2);
+}
+
+.edition-list strong,
+.edition-list span {
+  display: block;
+}
+
+.edition-list strong {
+  color: var(--text-bright);
+}
+
+.edition-list span,
+.edition-list p,
+.edition-list a {
+  font-size: 0.72rem;
+}
+
+.edition-list span {
+  color: rgba(196, 255, 129, 0.55);
+  margin-top: 0.2rem;
+}
+
+.edition-list p {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.edition-list a {
+  align-self: start;
+  white-space: nowrap;
+}
+
+.track-section {
 }
 
 .section-heading h2 {
@@ -292,6 +346,7 @@ const album = computed(() => albumBySlug(route.params.slug));
 
 @media screen and (max-width: 760px) {
   .album-hero,
+  .edition-section,
   .track-section {
     grid-template-columns: 1fr;
   }
@@ -318,12 +373,17 @@ const album = computed(() => albumBySlug(route.params.slug));
     padding-left: 0;
   }
 
-  .release-data div:nth-child(3) {
+  .release-data div:nth-child(2) {
     border-bottom: 0;
   }
 
-  .release-data .wide {
-    border-bottom: 0;
+  .edition-list li {
+    grid-template-columns: 1fr;
+  }
+
+  .edition-list p,
+  .edition-list a {
+    grid-column: 1;
   }
 
   .album-links {

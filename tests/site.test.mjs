@@ -100,3 +100,16 @@ test('each full-length album has a linked detail page', async () => {
     assert.match(albumData, new RegExp(`slug: '${slug}'`));
   }
 });
+
+test('album pages list sourced editions without redundant quick facts', async () => {
+  const albumPage = await read('src/pages/Album.vue');
+  const albumData = await read('src/data/albums.js');
+
+  assert.doesNotMatch(albumPage, /<dt>Tracks<\/dt>/);
+  assert.doesNotMatch(albumPage, /Physical transmission/);
+  assert.match(albumPage, /<h2>Editions<\/h2>/);
+  assert.match(albumData, /Metal-archives\.com/i);
+  assert.match(albumData, /Listen carefully to the echoes…/);
+  assert.match(albumData, /spaceship Mercurion/);
+  assert.match(albumData, /What is more terrifying/);
+});
