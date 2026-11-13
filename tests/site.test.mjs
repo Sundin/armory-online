@@ -17,7 +17,7 @@ test('the public entry point mounts the Armory app with social preview metadata'
   assert.match(html, /property="og:title" content="Armory — Cosmic Speed Metal"/);
   assert.match(
     html,
-    /property="og:image" content="https:\/\/www\.armory\.se\/armory-social-preview-photo\.png"/,
+    /property="og:image" content="https:\/\/www\.armory\.se\/armory-social-preview-clean\.png"/,
   );
   assert.match(html, /name="twitter:card" content="summary_large_image"/);
   assert.match(html, /<div id="app"><\/div>/);
