@@ -85,3 +85,16 @@ test('the May 2027 tour schedule includes coordinate placeholders', async () => 
     );
   }
 });
+
+test('press materials provide logo and high-resolution photo downloads', async () => {
+  const about = await read('src/pages/About.vue');
+  const photos = await read('src/pages/Photos.vue');
+  const router = await read('src/router.js');
+
+  assert.match(about, /href="\/downloads\/armory-logos\.zip" download>Download Logo/);
+  assert.match(about, /<router-link to="\/photos">Explore Photos<\/router-link>/);
+  assert.match(router, /path:\s*['"]\/photos['"]/);
+  assert.equal((photos.match(/preview: '\/press-photos\/armory-press-\d\.webp'/g) || []).length, 5);
+  assert.equal((photos.match(/Download in High Resolution/g) || []).length, 1);
+  assert.equal((photos.match(/drive\.usercontent\.google\.com\/download\?id=/g) || []).length, 5);
+});
