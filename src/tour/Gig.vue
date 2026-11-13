@@ -1,7 +1,12 @@
 <template>
   <article class="gig-entry">
     <p v-bind:class="{ cancelled: item.cancelled }">
-      <time :datetime="item.date">{{ item.date }}</time>
+      <span class="gig-date">
+        <time :datetime="item.date">{{ item.date }}</time>
+        <template v-if="item.endDate">
+          –<time :datetime="item.endDate">{{ item.endDate }}</time>
+        </template>
+      </span>
       <span class="gig-details">
       <template v-if="item.link">
         <a :href="item.link">{{ item.venue }}</a>,
@@ -42,12 +47,12 @@ export default {
   align-items: baseline;
   display: grid;
   gap: 1rem;
-  grid-template-columns: 7.5rem 1fr;
+  grid-template-columns: max-content 1fr;
   margin: 0;
   padding: 0.9rem 0;
 }
 
-time {
+.gig-date {
   color: var(--link-color);
   font-size: 0.7rem;
   font-weight: 900;
