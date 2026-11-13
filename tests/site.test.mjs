@@ -128,6 +128,10 @@ test('press materials provide logo and high-resolution photo downloads', async (
   assert.equal((photos.match(/preview: '\/press-photos\/armory-press-\d\.webp'/g) || []).length, 5);
   assert.equal((photos.match(/Download in High Resolution/g) || []).length, 1);
   assert.equal((photos.match(/drive\.usercontent\.google\.com\/download\?id=/g) || []).length, 5);
+  assert.ok(photos.indexOf('armory-press-5.webp') < photos.indexOf('armory-press-1.webp'));
+  assert.equal((photos.match(/Linni Lindström \/ Turborock Productions/g) || []).length, 4);
+  assert.equal((photos.match(/Bengt Lövgren/g) || []).length, 1);
+  assert.match(photos, /<span>Photo Credit: \{\{ photo\.credit \}\}<\/span>/);
 });
 
 test('footer aligns the command and history markers', async () => {
