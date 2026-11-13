@@ -5,34 +5,28 @@
     <p>Contact: armoryofficial@gmail.com</p>
 
     <p>
-      Out of the deep void in the far corners of the universe, the entity known as Armory was born
-      in the year 2012 C.E. With the guiding light of the fiery stars Judas Priest, Agent Steel and
-      Slayer, Armory set out on a cosmic path delivering hyperspeed metal to every planet, system,
-      and galaxy in their path. The two first albums <span class="title">World Peace… Cosmic War
-
-      </span>
-      (2016) and <span class="title">The Search</span>
-      (2018) was released via High Roller Records. Both got great reviews and
-      <span class="title">World Peace… Cosmic War</span>
-      was priced “Album of the year” by Metal Invader. Under the new flag of Dying Victims
-      Productions the third album <span class="title">Mercurion</span> (2022)
-      was unleashed followed by a European tour in
-      2023. This further cemented that Armory is a force to be reckoned with on the intergalactic
-      battleground. Armorys upcoming operations are set in motion and the next chapter starts with
-      the deployment of the single Black Star in February 2025 C.E. Expect a rapid barrage of
-      hyperspeed metal with influences from the dark cold void that engulfs us all.
+      Out of the deep void in the far corners of the universe, the entity known as Armory has been
+      delivering cosmic speed metal across the solar system since 2012. Based out of Gothenburg,
+      Earth, the five warrior-musicians are currently on the warpath following the deployment of
+      the fourth full-length album <span class="title">“Echoes of the Astrolith”</span> (released by
+      Dying Victims Productions in October 2026), the first to feature new turbo-laser vocalist
+      Chris Rostoff (also known as the voice of fellow speed metallers Steel Inferno). The album is
+      a bold statement of interstellar darkness and crazed speed metal riffing, and further cements
+      the fact that Armory is a force to be reckoned with on the intergalactic battleground. Expect
+      a rapid barrage of hyperspeed metal with influences from the dark cold void that engulfs us
+      all – no solar system will be safe from the onslaught of ARMORY.
     </p>
 
     <p>
       <a href="/press_kit.zip" download>Download press kit</a>
     </p>
 
-    <img src="../assets/armory2024.png" alt="Armory band portrait, 2024" />
+    <img src="../assets/armory2026.jpg" alt="Armory band portrait, 2026" />
 
     <h1>Lineup</h1>
 
     <p>Anglegrinder – Thunder Bass</p>
-    <p>Konstapel P. – Vocals</p>
+    <p>Chris Rostoff – Vocals</p>
     <p>Space Ace – Drums</p>
     <p>G.G. Sundin – Guitars</p>
     <p>Ingelman – Guitars</p>
@@ -41,6 +35,7 @@
     <p><b>2016: World Peace... Cosmic War</b></p>
     <p><b>2018: The Search</b></p>
     <p><b>2022: Mercurion</b></p>
+    <p><b>2026: Echoes of the Astrolith</b></p>
 
     <h1>Additional Discography</h1>
     <p>2013: Open Fire! (Demo)</p>
@@ -75,13 +70,15 @@
     </p>
     <h2>Videos</h2>
     <p>
+      <a href="https://www.youtube.com/watch?v=9ikAgxP3Wj0&amp;list=RD9ikAgxP3Wj0"
+        >Interceptor Squadron music video</a
+      >
+    </p>
+    <p>
       <a href="https://www.youtube.com/watch?v=Uw76Hz1XCz8">Wormhole Escape music video</a>
     </p>
     <p>
       <a href="https://youtu.be/UYj3EnEON8k">Vault Seven music video</a>
-    </p>
-    <p>
-      <a href="https://www.youtube.com/watch?v=hTNFsTV38hA&t=80s">Hyperion lyric video</a>
     </p>
     <p>
       <a href="https://www.youtube.com/watch?v=9YDNAMrtTVU">The Search album trailer</a>
