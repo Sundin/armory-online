@@ -7,10 +7,10 @@
       </div>
       <footer class="site-footer">
         <div class="site-footer__grid">
-          <span class="site-footer__left">Cosmic Speed Metal</span>
+          <span class="site-footer__left">Armory</span>
           <span class="site-footer__marker" aria-hidden="true">★</span>
           <span class="site-footer__right">Gothenburg · Earth</span>
-          <span class="site-footer__history site-footer__left">Armory</span>
+          <span class="site-footer__history site-footer__left">Cosmic Speed Metal</span>
           <span class="site-footer__history site-footer__marker" aria-hidden="true">•</span>
           <span class="site-footer__history site-footer__right">2012 - {{ currentYear }}</span>
         </div>
