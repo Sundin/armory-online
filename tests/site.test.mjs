@@ -138,6 +138,25 @@ test('album pages prioritize tracks and list only physical editions', async () =
   assert.match(albumData, /What is more terrifying/);
 });
 
+test('each album page includes its selected source-linked press quote', async () => {
+  const albumPage = await read('src/pages/Album.vue');
+  const albumData = await read('src/data/albums.js');
+
+  assert.match(albumPage, /album\.pressQuote\.text/);
+  assert.match(albumPage, /:href="album\.pressQuote\.url"/);
+  assert.match(albumPage, /album\.pressQuote\.author/);
+  assert.match(albumPage, /album\.pressQuote\.publication/);
+  assert.equal((albumData.match(/pressQuote: \{/g) || []).length, 4);
+  assert.match(albumData, /blast from the past blending American thrash and classic metal/);
+  assert.match(albumData, /most fun Speed Metal albums of the year/);
+  assert.match(albumData, /concept is an explosion of creativity/);
+  assert.match(albumData, /strong contender for a spot on my AOTY list/);
+  assert.match(albumData, /Heavy Music HQ/);
+  assert.match(albumData, /The Metal Crypt/);
+  assert.match(albumData, /Metal Temple/);
+  assert.match(albumData, /Metal Epidemic/);
+});
+
 test('press materials provide logo and high-resolution photo downloads', async () => {
   const about = await read('src/pages/About.vue');
   const photos = await read('src/pages/Photos.vue');

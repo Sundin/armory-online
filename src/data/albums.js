@@ -15,6 +15,12 @@ export const albums = [
     bandcamp: 'https://armory417.bandcamp.com/album/world-peace-cosmic-war',
     summary:
       'Armory’s first full-length transmission established the band’s hyperspeed collision of classic heavy metal and science-fiction warfare. A spoken launch sequence gives way to nine songs of cosmic conflict, mechanized danger and marauders in deep space.',
+    pressQuote: {
+      text: 'It’s a blast from the past blending American thrash and classic metal.',
+      author: 'Chad Bowar',
+      publication: 'Heavy Music HQ',
+      url: 'https://heavymusichq.com/chads-heavy-music-reviews-week-august-12-2016/',
+    },
     editions: [
       {
         name: 'CD · Limited edition',
@@ -71,6 +77,12 @@ export const albums = [
     bandcamp: 'https://armory417.bandcamp.com/album/the-search',
     summary:
       'What is more terrifying: that we are utterly alone, or that we are not? On our second album we ventured beyond the confinement of our home world in search of truth and understanding.',
+    pressQuote: {
+      text: 'The Search is easily one of the most fun Speed Metal albums of the year.',
+      author: 'Bruno Medeiros',
+      publication: 'The Metal Crypt',
+      url: 'https://metalcrypt.com/reviews/10039/armory-the-search-review',
+    },
     editions: [
       {
         name: 'CD',
@@ -128,6 +140,12 @@ export const albums = [
     bandcamp: 'https://armory417.bandcamp.com/album/mercurion',
     summary:
       'This is the epic tale about the spaceship Mercurion, and our first back-to-back concept album.',
+    pressQuote: {
+      text: 'The performances are breath-taking, and the concept is an explosion of creativity.',
+      author: 'Chris Hicklin',
+      publication: 'Metal Temple',
+      url: 'https://metal-temple.com/review/armory-mercurion/',
+    },
     editions: [
       {
         name: 'CD',
@@ -189,6 +207,12 @@ export const albums = [
     bandcamp: 'https://armory417.bandcamp.com/album/echoes-of-the-astrolith',
     summary:
       'Listen carefully to the echoes… and let the signals from space assume control of your minds!',
+    pressQuote: {
+      text: 'Echoes of the Astrolith is absolutely a strong contender for a spot on my AOTY list.',
+      author: 'Trina Julian Edwards',
+      publication: 'Metal Epidemic',
+      url: 'https://www.metalepidemic.com/armory-echoes-of-the-astrolith/',
+    },
     editions: [
       {
         name: 'CD',

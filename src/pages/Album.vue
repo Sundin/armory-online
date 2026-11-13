@@ -28,6 +28,16 @@
         </div>
       </header>
 
+      <blockquote class="press-quote">
+        <p>“{{ album.pressQuote.text }}”</p>
+        <footer>
+          <span>— {{ album.pressQuote.author }}</span>
+          <a :href="album.pressQuote.url" target="_blank" rel="noopener noreferrer">
+            {{ album.pressQuote.publication }} ↗
+          </a>
+        </footer>
+      </blockquote>
+
       <section class="track-section">
         <div class="section-heading">
           <p class="eyebrow">Signal sequence</p>
@@ -202,6 +212,41 @@ const album = computed(() => albumBySlug(route.params.slug));
   text-transform: uppercase;
 }
 
+.press-quote {
+  background: linear-gradient(90deg, rgba(65, 226, 56, 0.08), rgba(0, 16, 7, 0.35));
+  border-left: 3px solid var(--link-color);
+  margin: clamp(3rem, 8vw, 6rem) 0 0;
+  padding: clamp(1.25rem, 4vw, 2rem);
+}
+
+.press-quote p {
+  color: var(--text-bright);
+  font-size: clamp(1.15rem, 3vw, 1.65rem);
+  font-style: italic;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.press-quote footer {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.7rem;
+  font-style: normal;
+  gap: 0.4rem 0.75rem;
+  letter-spacing: 0.08em;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+
+.press-quote footer span {
+  color: rgba(196, 255, 129, 0.68);
+}
+
+.press-quote footer a {
+  font-weight: 900;
+}
+
 .edition-section,
 .track-section {
   border-top: 1px dashed var(--album-line);
@@ -350,6 +395,11 @@ const album = computed(() => albumBySlug(route.params.slug));
 }
 
 @media screen and (max-width: 480px) {
+  .press-quote footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
   .release-data {
     grid-template-columns: 1fr;
   }
