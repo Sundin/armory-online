@@ -120,11 +120,13 @@ test('album pages list sourced editions without redundant quick facts', async ()
 test('press materials provide logo and high-resolution photo downloads', async () => {
   const about = await read('src/pages/About.vue');
   const photos = await read('src/pages/Photos.vue');
+  const logos = await read('src/pages/Logos.vue');
   const router = await read('src/router.js');
 
-  assert.match(about, /href="\/downloads\/armory-logos\.zip" download>Download Logo/);
+  assert.match(about, /<router-link to="\/logos">Download Logo<\/router-link>/);
   assert.match(about, /<router-link to="\/photos">Explore Photos<\/router-link>/);
   assert.match(router, /path:\s*['"]\/photos['"]/);
+  assert.match(router, /path:\s*['"]\/logos['"]/);
   assert.equal((photos.match(/preview: '\/press-photos\/armory-press-\d\.webp'/g) || []).length, 5);
   assert.equal((photos.match(/Download in High Resolution/g) || []).length, 1);
   assert.equal((photos.match(/drive\.usercontent\.google\.com\/download\?id=/g) || []).length, 5);
@@ -132,6 +134,10 @@ test('press materials provide logo and high-resolution photo downloads', async (
   assert.equal((photos.match(/Linni Lindström \/ Turborock Productions/g) || []).length, 4);
   assert.equal((photos.match(/Bengt Lövgren/g) || []).length, 1);
   assert.match(photos, /<span>Photo Credit: \{\{ photo\.credit \}\}<\/span>/);
+  assert.equal((logos.match(/preview: '\/logo-previews\/[^']+-green\.webp'/g) || []).length, 3);
+  assert.equal((logos.match(/png: '\/downloads\/logos\/[^']+\.png'/g) || []).length, 3);
+  assert.equal((logos.match(/ai: '\/downloads\/logos\/[^']+\.ai'/g) || []).length, 3);
+  assert.match(logos, /Download Complete Logo Pack/);
 });
 
 test('footer aligns the command and history markers', async () => {
