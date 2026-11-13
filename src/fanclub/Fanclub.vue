@@ -2,18 +2,24 @@
   <main-layout>
     <h1>Space Marauders FC</h1>
 
-    <div class="fanclub-signal">
-      <img
-        src="../assets/fanclub_signal.png"
-        alt="Distorted green Space Marauders transmission"
-        width="320"
-        height="180"
-      />
-    </div>
+    <div class="fanclub-entry">
+      <router-link
+        class="fanclub-signal"
+        to="/vault7"
+        aria-label="Enter the restricted fanclub area"
+      >
+        <img
+          src="../assets/armory-on-acid-ufo.gif"
+          alt="Animated green and black distorted UFO signal"
+          width="320"
+          height="180"
+        />
+      </router-link>
 
-    <p>
-      <a href="/vault7">Click here to enter the restricted fanclub area.</a>
-    </p>
+      <p class="fanclub-entry-link">
+        <router-link to="/vault7">Click here to enter the restricted fanclub area.</router-link>
+      </p>
+    </div>
     <p>The Space Marauders was the now disbanded Armory fanclub.</p>
 
     <p>
@@ -39,11 +45,16 @@ export default {
 </script>
 
 <style scoped>
+.fanclub-entry {
+  margin-bottom: 2rem;
+}
+
 .fanclub-signal {
   background: #000;
   border: 1px solid rgba(65, 226, 56, 0.48);
   box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.72), 0 0 28px rgba(65, 226, 56, 0.16);
-  margin: 0 auto 2rem;
+  display: block;
+  margin: 0 auto;
   max-width: 640px;
   overflow: hidden;
 }
@@ -53,5 +64,11 @@ export default {
   height: auto;
   image-rendering: pixelated;
   width: 100%;
+}
+
+.fanclub-entry-link {
+  font-weight: 700;
+  margin: 1.25rem 0 0;
+  text-align: center;
 }
 </style>
