@@ -35,10 +35,22 @@
     <p>Ingelman – Guitars</p>
 
     <h1>Album Discography</h1>
-    <p><b>2016: World Peace... Cosmic War</b></p>
-    <p><b>2018: The Search</b></p>
-    <p><b>2022: Mercurion</b></p>
-    <p><b>2026: Echoes of the Astrolith</b></p>
+    <p>
+      <router-link to="/albums/world-peace-cosmic-war"
+        ><b>2016: World Peace... Cosmic War</b></router-link
+      >
+    </p>
+    <p>
+      <router-link to="/albums/the-search"><b>2018: The Search</b></router-link>
+    </p>
+    <p>
+      <router-link to="/albums/mercurion"><b>2022: Mercurion</b></router-link>
+    </p>
+    <p>
+      <router-link to="/albums/echoes-of-the-astrolith"
+        ><b>2026: Echoes of the Astrolith</b></router-link
+      >
+    </p>
 
     <h1>Additional Discography</h1>
     <p>2013: Open Fire! (Demo)</p>

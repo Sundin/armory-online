@@ -82,3 +82,21 @@ test('the May 2027 tour schedule includes coordinate placeholders', async () => 
     );
   }
 });
+
+test('each full-length album has a linked detail page', async () => {
+  const router = await read('src/router.js');
+  const about = await read('src/pages/About.vue');
+  const albumData = await read('src/data/albums.js');
+  const slugs = [
+    'world-peace-cosmic-war',
+    'the-search',
+    'mercurion',
+    'echoes-of-the-astrolith',
+  ];
+
+  assert.match(router, /path:\s*['"]\/albums\/:slug['"]/);
+  for (const slug of slugs) {
+    assert.match(about, new RegExp(`/albums/${slug}`));
+    assert.match(albumData, new RegExp(`slug: '${slug}'`));
+  }
+});
