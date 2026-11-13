@@ -20,6 +20,20 @@ import GigEntry from './Gig.vue';
 
 const gigs = [
   {
+    date: '2026-09-19',
+    location: 'Heavy Nights, Kopervik, Norway',
+  },
+  {
+    date: '2026-10-17',
+    location: 'Monument, Gothenburg, Sweden',
+    comment: 'Release party for Echoes of the Astrolith',
+  },
+  {
+    date: '2026-10-22',
+    location: 'Lygtens Kro, Copenhagen, Denmark',
+    comment: 'Release party for Echoes of the Astrolith',
+  },
+  {
     date: '2025-02-21',
     location: 'Geronimos, Stockholm, Sweden',
   },
