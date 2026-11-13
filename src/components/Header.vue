@@ -9,7 +9,7 @@
       <v-link href="/tour">Tour</v-link>
       <v-link href="/merch">Merch</v-link>
       <v-link href="/discography">Discography</v-link>
-      <v-link href="/about">About</v-link>
+      <v-link href="/about">Armory</v-link>
     </nav>
   </header>
 </template>

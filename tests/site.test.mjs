@@ -51,6 +51,8 @@ test('the core pages remain registered', async () => {
     assert.match(router, new RegExp(`import ${component} from`), `${component} should remain registered`);
   }
   assert.match(header, /<v-link href="\/discography">Discography<\/v-link>/);
+  assert.match(header, /<v-link href="\/about">Armory<\/v-link>/);
+  assert.doesNotMatch(header, /<v-link href="\/about">About<\/v-link>/);
   assert.doesNotMatch(header, /<v-link href="\/fanclub">/);
   assert.match(router, /router\.onError/);
   assert.match(router, /window\.location\.assign\(retryPath\)/);
