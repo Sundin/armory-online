@@ -70,13 +70,15 @@
     </p>
     <h2>Videos</h2>
     <p>
+      <a href="https://www.youtube.com/watch?v=9ikAgxP3Wj0&amp;list=RD9ikAgxP3Wj0"
+        >Interceptor Squadron music video</a
+      >
+    </p>
+    <p>
       <a href="https://www.youtube.com/watch?v=Uw76Hz1XCz8">Wormhole Escape music video</a>
     </p>
     <p>
       <a href="https://youtu.be/UYj3EnEON8k">Vault Seven music video</a>
-    </p>
-    <p>
-      <a href="https://www.youtube.com/watch?v=hTNFsTV38hA&t=80s">Hyperion lyric video</a>
     </p>
     <p>
       <a href="https://www.youtube.com/watch?v=9YDNAMrtTVU">The Search album trailer</a>
