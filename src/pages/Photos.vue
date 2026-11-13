@@ -10,6 +10,7 @@
       <figure v-for="photo in photos" :key="photo.preview">
         <img :src="photo.preview" :alt="photo.alt" loading="lazy" decoding="async" />
         <figcaption>
+          <span>Photo Credit: {{ photo.credit }}</span>
           <a :href="photo.download">Download in High Resolution</a>
         </figcaption>
       </figure>
@@ -22,34 +23,39 @@ import MainLayout from '../layouts/Main.vue';
 
 const photos = [
   {
-    preview: '/press-photos/armory-press-1.webp',
-    alt: 'Armory standing on a rocky shore beneath storm clouds',
+    preview: '/press-photos/armory-press-5.webp',
+    alt: 'Armory portrait in red and green smoke',
+    credit: 'Bengt Lövgren',
     download:
-      'https://drive.usercontent.google.com/download?id=1HgEMnyoAJlO6tH5vqF9-pus2VXX_oeWf&export=download&confirm=t',
-  },
-  {
-    preview: '/press-photos/armory-press-2.webp',
-    alt: 'Armory standing against a dark teal sky',
-    download:
-      'https://drive.usercontent.google.com/download?id=1XTZ6UqxfWxAbJgMBJnqo5nbkR0V7EZTX&export=download&confirm=t',
-  },
-  {
-    preview: '/press-photos/armory-press-3.webp',
-    alt: 'Armory gathered at night with smoke and backlighting',
-    download:
-      'https://drive.usercontent.google.com/download?id=1rXSFvWjmcHZml4XPPmYumieE2MhwJrNr&export=download&confirm=t',
+      'https://drive.usercontent.google.com/download?id=1BDTwVX_de55pdpK__qXwz8kTy_K2_4zo&export=download&confirm=t',
   },
   {
     preview: '/press-photos/armory-press-4.webp',
     alt: 'Armory illuminated by red light at night',
+    credit: 'Linni Lindström / Turborock Productions',
     download:
       'https://drive.usercontent.google.com/download?id=1RzW-TIPKWb5vObfQa3v0Ygf2uz5p2pBD&export=download&confirm=t',
   },
   {
-    preview: '/press-photos/armory-press-5.webp',
-    alt: 'Armory portrait in red and green smoke',
+    preview: '/press-photos/armory-press-3.webp',
+    alt: 'Armory gathered at night with smoke and backlighting',
+    credit: 'Linni Lindström / Turborock Productions',
     download:
-      'https://drive.usercontent.google.com/download?id=1BDTwVX_de55pdpK__qXwz8kTy_K2_4zo&export=download&confirm=t',
+      'https://drive.usercontent.google.com/download?id=1rXSFvWjmcHZml4XPPmYumieE2MhwJrNr&export=download&confirm=t',
+  },
+  {
+    preview: '/press-photos/armory-press-2.webp',
+    alt: 'Armory standing against a dark teal sky',
+    credit: 'Linni Lindström / Turborock Productions',
+    download:
+      'https://drive.usercontent.google.com/download?id=1XTZ6UqxfWxAbJgMBJnqo5nbkR0V7EZTX&export=download&confirm=t',
+  },
+  {
+    preview: '/press-photos/armory-press-1.webp',
+    alt: 'Armory standing on a rocky shore beneath storm clouds',
+    credit: 'Linni Lindström / Turborock Productions',
+    download:
+      'https://drive.usercontent.google.com/download?id=1HgEMnyoAJlO6tH5vqF9-pus2VXX_oeWf&export=download&confirm=t',
   },
 ];
 </script>
@@ -95,7 +101,14 @@ img {
 }
 
 figcaption {
+  display: grid;
+  gap: 0.4rem;
   margin-top: 1.1rem;
   text-align: center;
+}
+
+figcaption span {
+  color: rgba(196, 255, 129, 0.7);
+  font-size: 0.72rem;
 }
 </style>
