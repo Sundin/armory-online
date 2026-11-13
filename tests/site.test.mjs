@@ -54,14 +54,19 @@ test('the core pages remain registered', async () => {
   assert.match(router, /:\s*pathMatch\(\.\*\)\*/);
 });
 
-test('the fanclub page leads with the supplied transmission image', async () => {
+test('the fanclub page links its supplied transmission GIF and entry text to the vault', async () => {
   const fanclub = await read('src/fanclub/Fanclub.vue');
 
-  assert.match(fanclub, /src="\.\.\/assets\/fanclub_signal\.png"/);
-  assert.match(fanclub, /alt="Distorted green Space Marauders transmission"/);
+  assert.match(fanclub, /src="\.\.\/assets\/armory-on-acid-ufo\.gif"/);
+  assert.match(fanclub, /alt="Animated green and black distorted UFO signal"/);
+  assert.equal((fanclub.match(/to="\/vault7"/g) || []).length, 2);
+  assert.match(
+    fanclub,
+    /<router-link[\s\S]*?to="\/vault7"[\s\S]*?<img[\s\S]*?armory-on-acid-ufo\.gif[\s\S]*?<\/router-link>/,
+  );
   assert.ok(
-    fanclub.indexOf('fanclub_signal.png') < fanclub.indexOf('Click here to enter'),
-    'fanclub image should appear before the body copy',
+    fanclub.indexOf('armory-on-acid-ufo.gif') < fanclub.indexOf('Click here to enter'),
+    'fanclub GIF should appear before its entry link',
   );
 });
 
