@@ -1,6 +1,7 @@
 <template>
   <main-layout>
     <h1>Merch</h1>
+    <p class="merch-intro">Selected merch items:</p>
 
     <div class="merch-grid">
       <a
@@ -42,6 +43,7 @@
 
 <script>
 import MainLayout from '../layouts/Main.vue';
+import backpatch from '../assets/merch/backpatch.jpg';
 import blackStar from '../assets/merch/black-star.jpg';
 import echoesBlackVinyl from '../assets/merch/echoes-black-vinyl.jpg';
 import echoesCassette from '../assets/merch/echoes-cassette.jpg';
@@ -49,7 +51,12 @@ import echoesCd from '../assets/merch/echoes-cd.jpg';
 import echoesRedVinyl from '../assets/merch/echoes-red-vinyl.jpg';
 import echoesTshirt from '../assets/merch/echoes-tshirt.jpg';
 import interceptorTshirt from '../assets/merch/interceptor-tshirt.jpg';
+import metalPin from '../assets/merch/metal-pin.jpg';
+import necklace from '../assets/merch/necklace.jpg';
+import posterFlag from '../assets/merch/poster-flag.jpg';
+import silkScarf from '../assets/merch/silk-scarf.jpg';
 import truckerCap from '../assets/merch/trucker-cap.jpg';
+import trianglePatch from '../assets/merch/triangle-patch.jpg';
 
 const products = [
   {
@@ -92,6 +99,36 @@ const products = [
     url: 'https://www.jawbreaker.se/product/armory-black-star/',
     image: blackStar,
   },
+  {
+    name: 'Armory Metal Pin',
+    url: 'https://www.jawbreaker.se/product/armory-metal-pin/',
+    image: metalPin,
+  },
+  {
+    name: 'Armory Necklace',
+    url: 'https://www.jawbreaker.se/product/armory-necklace/',
+    image: necklace,
+  },
+  {
+    name: 'Armory Triangle Patch',
+    url: 'https://www.jawbreaker.se/product/armory-triangle-patch/',
+    image: trianglePatch,
+  },
+  {
+    name: 'Armory Backpatch',
+    url: 'https://www.jawbreaker.se/product/armory-backpatch/',
+    image: backpatch,
+  },
+  {
+    name: 'Armory Poster-Flag',
+    url: 'https://www.jawbreaker.se/product/armory-poster-flag/',
+    image: posterFlag,
+  },
+  {
+    name: 'Armory Silk Scarf',
+    url: 'https://www.jawbreaker.se/product/armory-silk-scarf/',
+    image: silkScarf,
+  },
 ];
 
 export default {
@@ -105,6 +142,14 @@ export default {
 </script>
 
 <style scoped>
+.merch-intro {
+  color: var(--text-bright);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin: -1rem 0 1.75rem;
+  text-transform: uppercase;
+}
+
 .merch-grid {
   display: grid;
   gap: clamp(1rem, 2.5vw, 1.6rem);
