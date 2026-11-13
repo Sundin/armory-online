@@ -237,7 +237,11 @@ test('press materials provide logo and high-resolution photo downloads', async (
 test('footer aligns the command and history markers', async () => {
   const layout = await read('src/layouts/Main.vue');
 
-  assert.match(layout, />Cosmic Speed Metal<\/span>/);
+  assert.match(layout, /<span class="site-footer__left">Armory<\/span>/);
+  assert.match(
+    layout,
+    /<span class="site-footer__history site-footer__left">Cosmic Speed Metal<\/span>/,
+  );
   assert.match(layout, /site-footer__marker[^>]*aria-hidden="true">★<\/span>/);
   assert.match(layout, /site-footer__history site-footer__marker[^>]*aria-hidden="true">•<\/span>/);
   assert.match(layout, /grid-template-columns: minmax\(0, 1fr\) auto minmax\(0, 1fr\)/);
