@@ -26,17 +26,21 @@
         Support Armory directly by ordering your speed metal merchandise from any of the following
         links.
       </p>
-      <p>
-        <a href="https://www.jawbreaker.se/product-tag/armory/">Jawbreaker Records</a>
-      </p>
-      <p>
-        <a href="https://armory417.bandcamp.com/">Bandcamp</a>
-      </p>
-      <p>
-        <a href="https://shop.dying-victims.de/en/search?controller=search&amp;s=armory"
-          >Dying Victims</a
+      <div class="store-grid" aria-label="Armory merchandise stores">
+        <a
+          v-for="store in stores"
+          :key="store.url"
+          class="merch-card store-card"
+          :href="store.url"
+          :aria-label="`Shop Armory merchandise at ${store.name}`"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-      </p>
+          <span class="store-card__signal" aria-hidden="true">Official supply channel</span>
+          <span class="merch-name">{{ store.name }}</span>
+          <span class="merch-cta" aria-hidden="true">↗</span>
+        </a>
+      </div>
     </section>
   </main-layout>
 </template>
@@ -131,12 +135,27 @@ const products = [
   },
 ];
 
+const stores = [
+  {
+    name: 'Jawbreaker Records',
+    url: 'https://www.jawbreaker.se/product-tag/armory/',
+  },
+  {
+    name: 'Bandcamp',
+    url: 'https://armory417.bandcamp.com/',
+  },
+  {
+    name: 'Dying Victims',
+    url: 'https://shop.dying-victims.de/en/search?controller=search&s=armory',
+  },
+];
+
 export default {
   components: {
     MainLayout,
   },
   data() {
-    return { products };
+    return { products, stores };
   },
 };
 </script>
@@ -281,18 +300,43 @@ export default {
   max-width: 46rem;
 }
 
-.merch-support p:not(:first-child) {
-  margin: 0.45rem 0;
+.store-grid {
+  display: grid;
+  gap: clamp(1rem, 2.5vw, 1.6rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.5rem;
+}
+
+.store-card {
+  justify-content: space-between;
+  min-height: 9.5rem;
+  padding: 1rem;
+}
+
+.store-card__signal {
+  color: rgba(196, 255, 129, 0.66);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  padding: 0.45rem 0.55rem 0;
+  text-transform: uppercase;
+}
+
+.store-card .merch-name {
+  font-size: clamp(1.35rem, 2.6vw, 1.8rem);
+  padding-top: 1.2rem;
 }
 
 @media screen and (max-width: 820px) {
-  .merch-grid {
+  .merch-grid,
+  .store-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media screen and (max-width: 460px) {
-  .merch-grid {
+  .merch-grid,
+  .store-grid {
     grid-template-columns: 1fr;
   }
 }

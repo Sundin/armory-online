@@ -128,6 +128,18 @@ test('the tour archive includes the 2025 and 2026 shared-bill gigs', async () =>
   );
 });
 
+test('the merch support stores use product-style cards', async () => {
+  const merch = await read('src/pages/Merch.vue');
+
+  assert.match(merch, /class="store-grid" aria-label="Armory merchandise stores"/);
+  assert.match(merch, /class="merch-card store-card"/);
+  assert.equal((merch.match(/name: '(Jawbreaker Records|Bandcamp|Dying Victims)'/g) || []).length, 3);
+  assert.match(merch, /https:\/\/www\.jawbreaker\.se\/product-tag\/armory\//);
+  assert.match(merch, /https:\/\/armory417\.bandcamp\.com\//);
+  assert.match(merch, /https:\/\/shop\.dying-victims\.de\/en\/search\?controller=search&s=armory/);
+  assert.match(merch, /Official supply channel/);
+});
+
 test('the discography index links all full-length album detail pages', async () => {
   const router = await read('src/router.js');
   const about = await read('src/pages/About.vue');
