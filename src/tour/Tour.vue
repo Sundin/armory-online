@@ -68,6 +68,11 @@ const gigs = [
     link: 'https://metal-magic.dk/',
   },
   {
+    date: '2026-08-15',
+    location: 'Jagtvej, Copenhagen, Denmark',
+    comment: 'with Midnatt',
+  },
+  {
     date: '2026-09-19',
     location: 'Heavy Nights, Kopervik, Norway',
   },
@@ -84,10 +89,12 @@ const gigs = [
   {
     date: '2025-02-21',
     location: 'Geronimos, Stockholm, Sweden',
+    comment: 'with Disarray',
   },
   {
     date: '2025-02-22',
     location: 'Bomber Bar, Motala, Sweden',
+    comment: 'with Disarray',
   },
   {
     date: '2023-10-21',
