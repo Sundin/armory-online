@@ -108,6 +108,24 @@ test('the May 2027 tour schedule includes coordinate placeholders', async () => 
   }
 });
 
+test('the tour archive includes the 2025 and 2026 shared-bill gigs', async () => {
+  const tour = await read('src/tour/Tour.vue');
+
+  assert.match(
+    tour,
+    /date: '2026-08-15',[\s\S]*?location: 'Jagtvej, Copenhagen, Denmark',[\s\S]*?comment: 'with Midnatt'/,
+  );
+  assert.equal((tour.match(/comment: 'with Disarray'/g) || []).length, 2);
+  assert.match(
+    tour,
+    /date: '2025-02-21',[\s\S]*?location: 'Geronimos, Stockholm, Sweden',[\s\S]*?comment: 'with Disarray'/,
+  );
+  assert.match(
+    tour,
+    /date: '2025-02-22',[\s\S]*?location: 'Bomber Bar, Motala, Sweden',[\s\S]*?comment: 'with Disarray'/,
+  );
+});
+
 test('the discography index links all full-length album detail pages', async () => {
   const router = await read('src/router.js');
   const about = await read('src/pages/About.vue');
