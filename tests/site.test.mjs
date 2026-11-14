@@ -50,6 +50,8 @@ test('the core pages remain registered', async () => {
   for (const component of ['Home', 'About', 'Tour', 'Fanclub', 'Merch']) {
     assert.match(router, new RegExp(`import ${component} from`), `${component} should remain registered`);
   }
+  assert.match(header, /<v-link href="\/">News<\/v-link>/);
+  assert.doesNotMatch(header, /<v-link href="\/">Home<\/v-link>/);
   assert.match(header, /<v-link href="\/discography">Discography<\/v-link>/);
   assert.match(header, /<v-link href="\/about">Armory<\/v-link>/);
   assert.doesNotMatch(header, /<v-link href="\/about">About<\/v-link>/);
