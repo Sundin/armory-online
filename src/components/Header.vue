@@ -5,7 +5,7 @@
       <img alt="Armory logo" class="logo" src="../assets/logo.png">
     </v-link>
     <nav class="navbar" aria-label="Main navigation">
-      <v-link href="/">Home</v-link>
+      <v-link href="/">News</v-link>
       <v-link href="/tour">Tour</v-link>
       <v-link href="/merch">Merch</v-link>
       <v-link href="/discography">Discography</v-link>
