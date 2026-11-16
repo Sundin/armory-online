@@ -278,3 +278,28 @@ test('footer aligns the command and history markers', async () => {
   assert.match(layout, /site-footer__history site-footer__marker[^>]*aria-hidden="true">•<\/span>/);
   assert.match(layout, /grid-template-columns: minmax\(0, 1fr\) auto minmax\(0, 1fr\)/);
 });
+
+
+test('build emits static, URL-specific metadata for discography and release pages', async () => {
+  const { execFile } = await import('node:child_process');
+  const { promisify } = await import('node:util');
+  await promisify(execFile)('npm', ['run', 'build'], { cwd: new URL('..', import.meta.url) });
+
+  for (const [path, title, description] of [
+    ['/discography', 'Armory — Discography', 'Four full-length transmissions'],
+    ['/albums/world-peace-cosmic-war', 'World Peace... Cosmic War — Armory', 'first full-length transmission'],
+    ['/albums/the-search', 'The Search — Armory', 'second album ventures'],
+    ['/albums/mercurion', 'Mercurion — Armory', 'epic tale of the spaceship Mercurion'],
+    ['/albums/echoes-of-the-astrolith', 'Echoes of the Astrolith — Armory', 'Listen carefully to the echoes'],
+  ]) {
+    const html = await read(`dist${path}/index.html`);
+    const url = `https://www.armory.se${path}`;
+
+    assert.ok(html.includes(`<title>${title}</title>`), path);
+    assert.ok(html.includes(`<link rel="canonical" href="${url}"`), path);
+    assert.ok(html.includes(`property="og:url" content="${url}"`), path);
+    assert.ok(html.includes(`property="og:title" content="${title}"`), path);
+    assert.ok(html.includes(`name="twitter:title" content="${title}"`), path);
+    assert.ok(html.includes(description), path);
+  }
+});
